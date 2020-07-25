@@ -10,7 +10,7 @@
 #
 #    baseurl = "/hugo-calade/"
 #
-baseurl = "https:://liripo.github.io"
+baseurl = "https://liripo.netlify.app/"
 
 # Rewrite URLs to be relative to the current content.
 relativeurls = true
