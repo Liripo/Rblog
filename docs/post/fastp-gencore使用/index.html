@@ -5,6 +5,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>fastp&#43;gencore使用 | Liripo</title>
+    <link rel="shortcut icon" href="../../image/title.svg" type="image/x-icon">
+  <script src="./fontawesome-free-5.11.2-web/fontawesome-free-5.11.2-web/js/all.js" crossorigin="anonymous"></script>
 
   <style>
   	:root {
@@ -77,9 +79,9 @@
 默认情况下，适配器修整是启用的，可以通过-A或&ndash;disable_adapter_trimming禁用
 -w, &ndash;thread参数可使用多线程</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mkdir umi_process <span style="color:#f92672">&amp;&amp;</span> cd umi_process
-fastp -i ../NL190929-1C.R1.fastq.gz -o R1.fastq.gz -I ../NL190929-1C.R2.fastq.gz -O R2.fastq.gz <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>        -U --umi_loc<span style="color:#f92672">=</span>per_read --umi_len<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span> --umi_skip<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span> --umi_prefix<span style="color:#f92672">=</span>UMI <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>        -Q -L -A
+fastp -i ../NL190929-1C.R1.fastq.gz -o R1.fastq.gz -I ../NL190929-1C.R2.fastq.gz -O R2.fastq.gz <span style="color:#ae81ff">\</span>
+        -U --umi_loc<span style="color:#f92672">=</span>per_read --umi_len<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span> --umi_skip<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span> --umi_prefix<span style="color:#f92672">=</span>UMI <span style="color:#ae81ff">\</span>
+        -Q -L -A
 </code></pre></div><p>产生的fastq的query names形如，这是gencore接受的query names。</p>
 <pre><code>@ST-E00252:685:H5CLNCCX2:1:1101:27884:2680:UMI_CAG_AGA 1:N:0:TTCGTTGG+TACACACG
 </code></pre><h1 id="bam">生成bam文件</h1>
@@ -111,8 +113,8 @@ cd ~/.soft <span style="color:#f92672">&amp;&amp;</span> ln -s ~/gitclone/gencor
 </code></pre></div><h2 id="heading-2">运行</h2>
 <p>脚本</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mkdir gencore <span style="color:#f92672">&amp;&amp;</span> cd gencore
-gencore -i ../umi_process/sortpos.bam -o gencore.unsort.bam -r /data3/liaorp/hg/hg19.fa <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>        -b ../snp.probe.bed -u UMI -s <span style="color:#ae81ff">1</span> --high_qual <span style="color:#ae81ff">30</span>
+gencore -i ../umi_process/sortpos.bam -o gencore.unsort.bam -r /data3/liaorp/hg/hg19.fa <span style="color:#ae81ff">\</span>
+        -b ../snp.probe.bed -u UMI -s <span style="color:#ae81ff">1</span> --high_qual 30
 </code></pre></div><p>结果目录：253：/data3/liaorp/umi/NL190929/fastp+genecore/gencore</p>
 <p>对结果按碱基排序</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">samtools sort -@ <span style="color:#ae81ff">20</span> -o sortgencore.bam gencore.unsort.bam
@@ -122,18 +124,18 @@ gencore -i ../umi_process/sortpos.bam -o gencore.unsort.bam -r /data3/liaorp/hg/
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">samtools index sortgencore.bam
 </code></pre></div><h1 id="vardictjava">vardictjava变体识别</h1>
 <p>脚本</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">java -jar /data3/liaorp/software/VarDictJava-master/build/libs/VarDict-1.7.0.jar <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>        -G /data3/liaorp/hg/hg19.fa -N NL19332 -f 0.01 <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>        -b sortgencore.bam <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>        -z -c <span style="color:#ae81ff">1</span> -S <span style="color:#ae81ff">2</span> -E <span style="color:#ae81ff">3</span> -g <span style="color:#ae81ff">4</span>  <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>        ../snp.probe.bed <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>        | /data3/liaorp/software/VarDictJava-master/dist/VarDict-1.7.0/bin/teststrandbias.R <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>    | /data3/liaorp/software/VarDictJava-master/dist/VarDict-1.7.0/bin/var2vcf_valid.pl -N NL19332 -E -f 0.01 <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>        |awk <span style="color:#e6db74">&#39;{if ($1 ~ /^#/) print; else if ($4 != $5) print }&#39;</span> <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>        &gt; tmp.vcf
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">java -jar /data3/liaorp/software/VarDictJava-master/build/libs/VarDict-1.7.0.jar <span style="color:#ae81ff">\</span>
+        -G /data3/liaorp/hg/hg19.fa -N NL19332 -f 0.01 <span style="color:#ae81ff">\</span>
+        -b sortgencore.bam <span style="color:#ae81ff">\</span>
+        -z -c <span style="color:#ae81ff">1</span> -S <span style="color:#ae81ff">2</span> -E <span style="color:#ae81ff">3</span> -g <span style="color:#ae81ff">4</span>  <span style="color:#ae81ff">\</span>
+        ../snp.probe.bed <span style="color:#ae81ff">\</span>
+        | /data3/liaorp/software/VarDictJava-master/dist/VarDict-1.7.0/bin/teststrandbias.R <span style="color:#ae81ff">\</span>
+    | /data3/liaorp/software/VarDictJava-master/dist/VarDict-1.7.0/bin/var2vcf_valid.pl -N NL19332 -E -f 0.01 <span style="color:#ae81ff">\</span>
+        |awk <span style="color:#e6db74">&#39;{if ($1 ~ /^#/) print; else if ($4 != $5) print }&#39;</span> <span style="color:#ae81ff">\</span>
+        &gt; tmp.vcf
 
-java -Xmx32g -jar /data3/liaorp/software/picard.jar SortVcf <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>        I<span style="color:#f92672">=</span>tmp.vcf O<span style="color:#f92672">=</span>NL19332.vcf SD<span style="color:#f92672">=</span>/data3/liaorp/hg/picard_CreateSequenceDictionary/hg19.dict
+java -Xmx32g -jar /data3/liaorp/software/picard.jar SortVcf <span style="color:#ae81ff">\</span>
+        I<span style="color:#f92672">=</span>tmp.vcf O<span style="color:#f92672">=</span>NL19332.vcf SD<span style="color:#f92672">=</span>/data3/liaorp/hg/picard_CreateSequenceDictionary/hg19.dict
 </code></pre></div><p>参考文献：</p>
 <section class="footnotes" role="doc-endnotes">
 <hr>
@@ -150,8 +152,10 @@ java -Xmx32g -jar /data3/liaorp/software/picard.jar SortVcf <span style="color:#
 
       <footer>
   
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/r.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/r.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/python.min.js"></script>
 
   <script>
   hljs.configure({languages: []});

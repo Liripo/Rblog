@@ -5,6 +5,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>windows10安装linux | Liripo</title>
+    <link rel="shortcut icon" href="../../image/title.svg" type="image/x-icon">
+  <script src="./fontawesome-free-5.11.2-web/fontawesome-free-5.11.2-web/js/all.js" crossorigin="anonymous"></script>
 
   <style>
   	:root {
@@ -145,9 +147,9 @@ _socket socketmodule.c timemodule.c
 <span style="color:#75715e"># Socket module helper for SSL support; you must comment out the other</span>
 <span style="color:#75715e"># socket line above, and possibly edit the SSL variable:</span>
 <span style="color:#75715e">#SSL=/usr/local/ssl</span>
-_ssl _ssl.c <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>-DUSE_SSL -I<span style="color:#66d9ef">$(</span>SSL<span style="color:#66d9ef">)</span>/include -I<span style="color:#66d9ef">$(</span>SSL<span style="color:#66d9ef">)</span>/include/openssl <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>-L<span style="color:#66d9ef">$(</span>SSL<span style="color:#66d9ef">)</span>/lib -lssl -lcrypto
+_ssl _ssl.c <span style="color:#ae81ff">\</span>
+-DUSE_SSL -I<span style="color:#66d9ef">$(</span>SSL<span style="color:#66d9ef">)</span>/include -I<span style="color:#66d9ef">$(</span>SSL<span style="color:#66d9ef">)</span>/include/openssl <span style="color:#ae81ff">\</span>
+-L<span style="color:#66d9ef">$(</span>SSL<span style="color:#66d9ef">)</span>/lib -lssl -lcrypto
 </code></pre></div><h3 id="makezlib">安装make和zlib*</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt-get install make <span style="color:#f92672">&amp;&amp;</span> sudo apt-get install zlib*
 </code></pre></div><h3 id="heading">编译安装</h3>
@@ -176,7 +178,7 @@ hi Number ctermfg <span style="color:#f92672">=</span> green
 hi MatchParen ctermbg<span style="color:#f92672">=</span>darkyellow guibg<span style="color:#f92672">=</span> white
 highlight Function cterm<span style="color:#f92672">=</span>bold
 hi Type ctermfg <span style="color:#f92672">=</span>blue
-set tabstop <span style="color:#f92672">=</span><span style="color:#ae81ff">4</span>
+set tabstop <span style="color:#f92672">=</span>4
 hi Special ctermfg  <span style="color:#f92672">=</span> red
 hi Identifier cterm <span style="color:#f92672">=</span> bold <span style="color:#e6db74">&#34;变量标识符名称。
 </span><span style="color:#e6db74">hi Statement cterm = bold
@@ -303,8 +305,10 @@ sudo apt-get install vim
 
       <footer>
   
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/r.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/r.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/python.min.js"></script>
 
   <script>
   hljs.configure({languages: []});

@@ -5,6 +5,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>R包开发 | Liripo</title>
+    <link rel="shortcut icon" href="../../image/title.svg" type="image/x-icon">
+  <script src="./fontawesome-free-5.11.2-web/fontawesome-free-5.11.2-web/js/all.js" crossorigin="anonymous"></script>
 
   <style>
   	:root {
@@ -95,7 +97,7 @@
         <p><strong><a href="https://r-pkgs.org/">R包开发书籍</a></strong></p>
 <p><strong><a href="https://cran.r-project.org/doc/manuals/r-release/R-exts.html">Writing R Extensions</a></strong></p>
 <p><a href="https://qianjiye.de/2015/04/r-packages">https://qianjiye.de/2015/04/r-packages</a></p>
-<h1 id="r">R包开发</h1>
+<h1 id="r-package">R package</h1>
 <p>使用devtools+Rtools进行R包开发，而Linux可以使用dockor+Rstudio开发版本。</p>
 <h3 id="create-package">create_package()</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">library</span>(devtools)
@@ -103,13 +105,13 @@
 </code></pre></div><h3 id="use-r">use_r()</h3>
 <p>使用<code>use_r(&quot;scales&quot;)</code>在R文件夹下生成一个scales.R文件。</p>
 <p>下面举个我写的例子，参考函数<code>scales::show_col</code></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e">#&#39; @title show your colors by ggplot2</span>
-<span style="color:#75715e">#&#39;</span>
-<span style="color:#75715e">#&#39; @param colors colors</span>
-<span style="color:#75715e">#&#39; @param ncol ncol</span>
-<span style="color:#75715e">#&#39; @importFrom ggplot2 ggplot geom_tile aes aes_</span>
-<span style="color:#75715e">#&#39; @importFrom ggplot2 geom_text scale_fill_manual theme_void</span>
-<span style="color:#75715e">#&#39; @export</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e">#&#39; @title show your colors by ggplot2</span>
+<span style="color:#75715e">#&#39;</span>
+<span style="color:#75715e">#&#39; @param colors colors</span>
+<span style="color:#75715e">#&#39; @param ncol ncol</span>
+<span style="color:#75715e">#&#39; @importFrom ggplot2 ggplot geom_tile aes aes_</span>
+<span style="color:#75715e">#&#39; @importFrom ggplot2 geom_text scale_fill_manual theme_void</span>
+<span style="color:#75715e">#&#39; @export</span>
 show_color <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">function</span>(colors,ncol <span style="color:#f92672">=</span> <span style="color:#66d9ef">NULL</span>){
   n <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">length</span>(colors)
   ncol <span style="color:#f92672">&lt;-</span> ncol <span style="color:#f92672">%||%</span> <span style="color:#a6e22e">ceiling</span>(<span style="color:#a6e22e">sqrt</span>(<span style="color:#a6e22e">length</span>(colors)))
@@ -128,17 +130,17 @@ show_color <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">
   <span style="color:#a6e22e">attr</span>(p,<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">class&#34;</span>) <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(class,<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">show_color&#34;</span>)
   p
 }
-<span style="color:#75715e">#&#39; @rdname print</span>
-<span style="color:#75715e">#&#39; @export</span>
-<span style="color:#75715e">#&#39; @method print show_color</span>
+<span style="color:#75715e">#&#39; @rdname print</span>
+<span style="color:#75715e">#&#39; @export</span>
+<span style="color:#75715e">#&#39; @method print show_color</span>
 print.show_color <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">function</span>(x,<span style="color:#66d9ef">...</span>){
   <span style="color:#a6e22e">print</span>(x,<span style="color:#66d9ef">...</span>)
 }
 </code></pre></div><p>里面ggplot2写R包时应使用aes_替代aes函数，具体可以<code>?aes\_</code>,当你想在R包中使用dplyr时，你可以运行R代码<code>vignette(&quot;programming&quot;)</code>看看dplyr的编程文档。</p>
 <p>举个例子：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e">#&#39; @title ---</span>
-<span style="color:#75715e">#&#39; @importFrom dplyr filter </span>
-<span style="color:#75715e">#&#39; @importFrom rlang .data</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e">#&#39; @title ---</span>
+<span style="color:#75715e">#&#39; @importFrom dplyr filter </span>
+<span style="color:#75715e">#&#39; @importFrom rlang .data</span>
 print_99 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">function</span>(){
     table <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">expand.grid</span>(a <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#ae81ff">9</span>,b <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#ae81ff">9</span>) <span style="color:#f92672">%&gt;%</span>
     <span style="color:#a6e22e">filter</span>(.data<span style="color:#f92672">$</span>a <span style="color:#f92672">&lt;=</span> .data<span style="color:#f92672">$</span>b)
@@ -155,8 +157,8 @@ print_99 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">fu
 <p><code>load_all()</code>默认载入当前路径的包，类似<code>library()</code>，然后你可以试试写的代码。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#f92672">&gt;</span><span style="color:#a6e22e">exists</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">show_color&#34;</span>, where <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">.GlobalEnv&#34;</span>, inherits <span style="color:#f92672">=</span> <span style="color:#66d9ef">FALSE</span>)
 [1] FLASE
-<span style="color:#75715e">#可以看到当前全局环境没有这个函数，确实是以包的函数载入</span>
-<span style="color:#f92672">&gt;</span><span style="color:#a6e22e">search</span>()<span style="color:#75715e">#看到载入的包</span>
+<span style="color:#75715e">#可以看到当前全局环境没有这个函数，确实是以包的函数载入</span>
+<span style="color:#f92672">&gt;</span><span style="color:#a6e22e">search</span>()<span style="color:#75715e">#看到载入的包</span>
 </code></pre></div><h3 id="check">check()</h3>
 <p>使用<code>check()</code>检查R包，可以看到是否有报错。</p>
 <h3 id="use-mit-licence">use_mit_licence</h3>
@@ -169,7 +171,7 @@ Loading liripo.R
 Writing NAMESPACE
 Writing NAMESPACE
 Writing scale.Rd
-</code></pre></div><h1 id="r-1">R包中文</h1>
+</code></pre></div><h1 id="r">R包中文</h1>
 <p>目前来说，不要使用中文。必须使用的可以看看函数<code>?stringi::stri_escape_unicode()</code>使用生成的unicode替代。ps:不过我使用后还是提示我使用ASCII字符编码。</p>
 <h1 id="install">install()</h1>
 <p>install()将包载入到<code>.libpath()</code>路径。看下是否安装上了：</p>
@@ -178,31 +180,31 @@ Writing scale.Rd
 </code></pre></div><h3 id="check-builtbuild">check_built()和build()</h3>
 <p><code>check_built()</code>检查tar.gz包。</p>
 <p><code>build()</code>生成tar.gz包，便于分享。</p>
-<h1 id="r-2">R包加入数据集</h1>
+<h1 id="r-1">R包加入数据集</h1>
 <p><code>use_data()</code>函数可以对R对象生成/data/*.rda文件，之后使用<code>use_r(&quot;R包名-package&quot;)</code>，在这个新生成的文件加入skeleon，例子：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e">#&#39; @name Rliripo</span>
-<span style="color:#75715e">#&#39; @docType package</span>
-<span style="color:#75715e">#&#39; @importFrom grDevices colorRampPalette</span>
-<span style="color:#75715e">#&#39; @importFrom stats na.omit</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e">#&#39; @name Rliripo</span>
+<span style="color:#75715e">#&#39; @docType package</span>
+<span style="color:#75715e">#&#39; @importFrom grDevices colorRampPalette</span>
+<span style="color:#75715e">#&#39; @importFrom stats na.omit</span>
 <span style="color:#66d9ef">NULL</span>
-<span style="color:#75715e">#&#39;It&#39;s the color data of rmb</span>
-<span style="color:#75715e">#&#39;</span>
-<span style="color:#75715e">#&#39;used to this package</span>
-<span style="color:#75715e">#&#39;@docType data</span>
-<span style="color:#75715e">#&#39;@name rmb</span>
+<span style="color:#75715e">#&#39;It&#39;s the color data of rmb</span>
+<span style="color:#75715e">#&#39;</span>
+<span style="color:#75715e">#&#39;used to this package</span>
+<span style="color:#75715e">#&#39;@docType data</span>
+<span style="color:#75715e">#&#39;@name rmb</span>
 <span style="color:#66d9ef">NULL</span>
 
-<span style="color:#75715e">#&#39;It&#39;s the Codon table</span>
-<span style="color:#75715e">#&#39;</span>
-<span style="color:#75715e">#&#39;used to this package</span>
-<span style="color:#75715e">#&#39;@docType data</span>
-<span style="color:#75715e">#&#39;@name dna_pro_table</span>
+<span style="color:#75715e">#&#39;It&#39;s the Codon table</span>
+<span style="color:#75715e">#&#39;</span>
+<span style="color:#75715e">#&#39;used to this package</span>
+<span style="color:#75715e">#&#39;@docType data</span>
+<span style="color:#75715e">#&#39;@name dna_pro_table</span>
 <span style="color:#66d9ef">NULL</span>
-<span style="color:#75715e">#&#39;It&#39;s the seqence data of 2003 SARS</span>
-<span style="color:#75715e">#&#39;</span>
-<span style="color:#75715e">#&#39;used to this package</span>
-<span style="color:#75715e">#&#39;@docType data</span>
-<span style="color:#75715e">#&#39;@name SARS</span>
+<span style="color:#75715e">#&#39;It&#39;s the seqence data of 2003 SARS</span>
+<span style="color:#75715e">#&#39;</span>
+<span style="color:#75715e">#&#39;used to this package</span>
+<span style="color:#75715e">#&#39;@docType data</span>
+<span style="color:#75715e">#&#39;@name SARS</span>
 <span style="color:#66d9ef">NULL</span>
 <span style="color:#a6e22e">globalVariables</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">rmb&#34;</span>,<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">dna_pro_table&#34;</span>))
 </code></pre></div><p><code>globalVariables</code>使得能在编写的R包中直接使用这些数据集。</p>
@@ -211,8 +213,10 @@ Writing scale.Rd
 
       <footer>
   
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/r.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/r.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/python.min.js"></script>
 
   <script>
   hljs.configure({languages: []});

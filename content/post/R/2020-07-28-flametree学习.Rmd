@@ -1,0 +1,179 @@
+---
+title: "flametree学习"
+author: "Liripo"
+date: '2020-07-28'
+slug: flametree学习
+tags: R
+summary: ' '
+output:
+  html_document:
+    toc: true
+    dev: 'svg'
+    code_folding: "hide"
+    highlight: textmate
+    theme: flatly
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+```
+
+# flametree
+[flametree](https://github.com/djnavarro/flametree)使用贝塞尔曲线绘制了很好看的树。
+```{r eval=FALSE, include=FALSE}
+devtools::install_github("djnavarro/flametree")
+```
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+library(tidyverse)
+flametree::flametree_grow() %>% flametree::flametree_plot()
+```
+
+# learn code
+## flametree_plot
+```{r echo=TRUE}
+flametree::flametree_plot
+```
+
+绘图源代码中使用了`ggforce::geom_bezier2`函数去绘制图形，我在看这个函数的源代码时发现`StatBezier`在数据转换使用了一个`ggforce:::getBeziers`函数，没怎么看明白cpp代码，而且ggplot2的扩展我也还没怎么弄清。不过大概意思就是根据贝塞尔曲线生成一系列的点，然后使用geom_path绘制图形。
+
+搜了下贝塞尔曲线是什么，参考了[https://github.com/BooheeFE/weekly/issues/31](https://github.com/BooheeFE/weekly/issues/31)。
+
+然后摸索了一下函数`flametree::flametree_grow()`生成的数据，它生成了每三个点为一组的数据。这里我们就看看前三行数据,就不用knitr输出整个表了
+```{r echo=TRUE}
+flametree::flametree_grow() %>% head(3)->data
+data
+```
+
+试着按照参考的三个点的贝塞尔曲线写了个函数，当然推导过程我还没看看怎么推导的~~
+```{r echo=TRUE}
+r_getbeziers <- function(data,coordx,coord_y,n = 100){
+  p_x <-  data$coord_x 
+  p_y <- data$coord_y
+  n_t <- seq(0,1,length.out = n)
+  outx <- (1-n_t)^2*p_x[1] + 2*(1-n_t)*n_t*p_x[2] +n_t^2*p_x[3]
+  outy <- (1-n_t)^2*p_y[1] + 2*(1-n_t)*n_t*p_y[2] +n_t^2*p_y[3]
+  out <- tibble(x = outx , y = outy)
+  out
+}
+```
+
+验证一下,
+```{r echo=TRUE}
+data %>% r_getbeziers(coordx,coord_y)->a
+b <- ggforce:::getBeziers(data$coord_x,data$coord_y,id = data$id_path,100)
+all(b$paths == a)
+```
+
+贝塞尔曲线就到这吧。所以剩下一个绘制flametree树图的问题就是如何生成每三个点为一组的数据了,当然，按照`flametree::flametree_plot`函数所示，数据还需要加上线的大小以及颜色。
+
+## flametree_grow
+```{r echo=TRUE}
+flametree::flametree_grow
+```
+
+这些参数，seed明显就是用来可重复的，time帮助文档说是迭代的次数，经过摸索，它是要生成多少次树枝，而split是生成的分枝个数，prune是修剪的概率。prune的实现原理是使用sample_n跟stats::rbinom实现的，可以看看`flametree:::grow_shoots`的代码，这里默认0是不修剪，暂时先不管它了。
+看下time = 2,split = 1的图长什么样。
+```{r echo=TRUE}
+flametree::flametree_grow(time = 2,split = 1,angle = 10,scale = 0.9) %>% 
+  flametree::flametree_plot()
+```
+
+### grow_sapling
+```{r echo=TRUE}
+flametree:::grow_sapling() %>% print()
+```
+
+可以看到生成一个初始tibble,`(x_0:y_2)`列是绘制贝塞尔曲线的三个点，经过`flametree:::shape_tree`函数最后转成长列表格式。seg_deg是生成的角度，现在可能不太好说明。seg_len是树枝的长度，id_time则是进行的迭代id。
+
+### grow_tree
+```{r echo=TRUE}
+flametree:::grow_tree
+```
+
+可以看到，.init参数是sapling,即生成的数据框列表第一个是sapling,之后进行迭代。
+花了挺久时间才明白.init参数是什么作用。
+
+### grow_layer
+```{r echo=TRUE}
+flametree:::grow_layer
+```
+可以看到split参数就是用来生成多少行的数据框的，
+先看下grow_shoots源码，
+```{r echo=TRUE}
+flametree:::grow_shoots
+```
+
+time参数并没有在grow_shoots使用到。所以当用1:param$split为time参数，且默认split为2时,生成的点是有可能跟原来重复的。也就是有的地方geom_path会绘制多次。验证一下，
+```{r echo=TRUE}
+flametree::flametree_grow()->a
+a %>% filter(id_time == 7) %>% nrow()
+a %>% filter(id_time == 7) %>% select(-id_path) %>% 
+  distinct() %>% nrow()
+```
+
+可以看到有些行数被去重了。（应该是这样的）
+>这儿是不是应该修改成split的两个不会重复呢？(虽然这样想，我还没试着改下)
+
+
+```{r echo=TRUE}
+flametree::flametree_grow(seed = 100) %>% flametree::flametree_plot()
+```
+
+这个图很显然就是第一个枝桠没有生出两个分支的例子了。
+>备注：重新看下作者的帮助文档，她也说了split是生成最大的分支的意思（怪我一开始没理解这参数的意思）
+
+### grow_shoots
+这个函数源码正如上所示，
+起始的shoots为sapling,即
+```{r echo=TRUE}
+sapling <- flametree:::grow_sapling()
+shoots <- sapling
+```
+
+然后这个函数代码中，第三第四行分别scale,angle的随机数，默认参数的随机选择比较少些,试下参数改成scale= runif(100,0.8,0.9)。
+```{r echo=TRUE}
+flametree::flametree_grow(seed= 100,scale = runif(100,0.6,0.9)) %>% 
+  flametree::flametree_plot()
+```
+
+hh,有必要么。。。
+
+接着看下最后的操作，下一个生成的shoots会是啥，这里我们用参数split = 1来看看，就是函数`accumulate`累加生成的shoots都为1行。如果按照默认参数time = 6,split = 2的话，起始shoots为一行，之后变`1*2`行，`1*2*2`行,...`1*2^6`行。
+
+```{r eval=FALSE, include=TRUE}
+shoots <- shoots %>% dplyr::mutate(
+  x_0 = x_2, 
+  y_0 = y_2, 
+  seg_len = seg_len * ch_seg_len, 
+  x_1 = x_0 + extend_x(seg_len/2,seg_deg), 
+  y_1 = y_0 + extend_y(seg_len/2, seg_deg), 
+  seg_deg = seg_deg + ch_seg_deg, 
+  id_time = id_time + 1L, 
+  x_2 = x_0 + extend_x(seg_len, seg_deg), 
+  y_2 = y_0 + extend_y(seg_len, seg_deg),)
+```
+可以看到，p0第一个点，p1第二个点，p2第三个点，新的shoots的p0是上一个shoots的p2,seg_len跟seg_deg就是新生成的shoots长度跟角度的修改。
+```{r echo=TRUE, paged.print=FALSE}
+flametree:::extend_x
+flametree:::radians
+```
+
+然后p1点的延伸使用的是新的shoots的长度跟原来的shoots的角度,p2点的延伸使用新的shoots的长度与角度生成。（为什么不都使用新的长度跟角度呢）
+
+所以假设ch_seg_len = 0.9,ch_seg = 10的话,新的shoots即为，
+```
+# A tibble: 1 x 9
+    x_0   y_0      x_1   y_1    x_2   y_2 seg_deg seg_len id_time
+  <dbl> <dbl>    <dbl> <dbl>  <dbl> <dbl>   <dbl>   <dbl>   <int>
+1     0     1 2.76e-17  1.45 -0.156  1.89     100     0.9       2
+```
+# last
+总的差不多就是这样了,之后对grow_tree的数据转成长数据就行了。
+作者在github上绘制的图
+
+```{r echo=TRUE}
+flametree::flametree_grow(seed = 4, time = 13) %>% 
+  flametree::flametree_plot()
+```
+

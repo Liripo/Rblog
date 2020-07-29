@@ -5,6 +5,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bioinformatics名词,数据文件 | Liripo</title>
+    <link rel="shortcut icon" href="../../image/title.svg" type="image/x-icon">
+  <script src="./fontawesome-free-5.11.2-web/fontawesome-free-5.11.2-web/js/all.js" crossorigin="anonymous"></script>
 
   <style>
   	:root {
@@ -128,7 +130,7 @@ FORMAT 和 样品名列：这两行合起来提供了样品的基因型的信息
 <span style="color:#75715e">##第九，十列中</span>
 GT:DP:VD:AD:AF:RD:ALD 
 0/1:322:61:261,61:0.1894:144,117:33,28
-</code></pre></div><p>GT：样品的基因型（genotype）。两个数字中间用’/&lsquo;分开，这两个数字表示双倍体的sample的基因型。0 表示样品中有ref的allele； 1 表示样品中variant的allele； 2表示有第二个variant的allele。因此： 0/0 表示sample中该位点为纯合的，和ref一致； 0/1 表示sample中该位点为杂合的，有ref和variant两个基因型； 1/1 表示sample中该位点为纯合的，和variant一致。
+</code></pre></div><p>GT：样品的基因型（genotype）。两个数字中间用’/&lsquo;分开，这两个数字表示双倍体的sample的基因型。0 表示样品中有ref的allele； 1 表示样品中variant的allele； 2表示有第二个variant的allele。因此： 0/0 表示sample中该位点为纯合的，和ref一致； 0/1 表示sample中该位点为杂合的，有ref和variant两个基因型； 1/1 表示sample中该位点为纯合的，和variant一致。 
 DP（Depth）为sample中该位点的测序深度。
 AD(Allele Depth)为sample中每一种allele的reads覆盖度，以逗号分割。</p>
 <h4 id="bamsamcram">bam/sam/cram</h4>
@@ -212,8 +214,10 @@ het：杂合；hom: 纯合；Pathogenic: 致病的;
 
       <footer>
   
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/r.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/r.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/python.min.js"></script>
 
   <script>
   hljs.configure({languages: []});

@@ -5,6 +5,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Markdown与Typora,Rmarkdown | Liripo</title>
+    <link rel="shortcut icon" href="../../image/title.svg" type="image/x-icon">
+  <script src="./fontawesome-free-5.11.2-web/fontawesome-free-5.11.2-web/js/all.js" crossorigin="anonymous"></script>
 
   <style>
   	:root {
@@ -85,9 +87,9 @@ Tpyora支持导出PDF，html，word&ndash;需安装<a href="https://pandoc.org/i
 <p>直接点击knit to html即可。</p>
 <h4 id="pdf">导出PDF</h4>
 <p>需要安装<a href="https://yihui.org/tinytex/cn/">tinytex</a></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e">#以下任选即可</span>
-tinytex<span style="color:#f92672">::</span><span style="color:#a6e22e">install_tinytex</span>()<span style="color:#75715e">#这个我没成功过</span>
-devtools<span style="color:#f92672">::</span><span style="color:#a6e22e">install_github</span>(<span style="color:#e6db74">&#39;</span><span style="color:#e6db74">yihui/tinytex&#39;</span>)<span style="color:#75715e">#github下载多好</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e">#以下任选即可</span>
+tinytex<span style="color:#f92672">::</span><span style="color:#a6e22e">install_tinytex</span>()<span style="color:#75715e">#这个我没成功过</span>
+devtools<span style="color:#f92672">::</span><span style="color:#a6e22e">install_github</span>(<span style="color:#e6db74">&#39;</span><span style="color:#e6db74">yihui/tinytex&#39;</span>)<span style="color:#75715e">#github下载多好</span>
 </code></pre></div><p>记录个问题，花了我很长时间，tinytex需要调用DOS命令DOSKEY,由于我的公司电脑没有配置好环境变量路径：c:\windows\System32，所以一直无法设置别名。当然，如果没有问题的话，安装好tinytex直接导出pdf时会自动下载。
 下载完后下载<a href="https://miktex.org/download">miktex</a>&ndash;这是windows的
 之后设置Rstudio,打开tools,点击global option，如下所示，
@@ -98,7 +100,7 @@ devtools<span style="color:#f92672">::</span><span style="color:#a6e22e">install
 <p>以xeLaTeX+ xeCJK 来处理终于能用Rmarkdown编译pdf文档</p>
 </blockquote>
 <h5 id="pdf-1">解决中文pdf不支持问题</h5>
-<p>下载rticles<code>install.packages(&quot;rticles&quot;)</code> 这个包中有Ctex相关功能，所以可以实现中文的输出
+<p>下载rticles<code>install.packages(&quot;rticles&quot;)</code> 这个包中有Ctex相关功能，所以可以实现中文的输出 
 之后在写Rmarkdown时使用rticles的cetx模板即可。
 <img src="https://liripo-1300901505.cos.ap-guangzhou.myqcloud.com/home20191223205725.png" alt=""></p>
 <p>弄到这，干嘛不直接下个<a href="http://www.ctex.org/CTeXDownload">ceTX</a>就好，不过还要编辑header.tex文件，想想还是模板吧。</p>
@@ -119,8 +121,10 @@ devtools<span style="color:#f92672">::</span><span style="color:#a6e22e">install
 
       <footer>
   
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/r.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/r.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/python.min.js"></script>
 
   <script>
   hljs.configure({languages: []});

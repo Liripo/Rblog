@@ -5,6 +5,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Hexo&#43;github搭建blog | Liripo</title>
+    <link rel="shortcut icon" href="../../image/title.svg" type="image/x-icon">
+  <script src="./fontawesome-free-5.11.2-web/fontawesome-free-5.11.2-web/js/all.js" crossorigin="anonymous"></script>
 
   <style>
   	:root {
@@ -351,7 +353,7 @@ git pull
   <span style="color:#a6e22e">app_id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;用户ID&#34;</span>
 });
 <span style="color:#a6e22e">daovoice</span>(<span style="color:#e6db74">&#39;update&#39;</span>);
- <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/</span><span style="color:#960050;background-color:#1e0010">s</span><span style="color:#960050;background-color:#1e0010">c</span><span style="color:#960050;background-color:#1e0010">r</span><span style="color:#960050;background-color:#1e0010">i</span><span style="color:#960050;background-color:#1e0010">p</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">&gt;</span>
+ <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/</span><span style="color:#960050;background-color:#1e0010">s</span><span style="color:#960050;background-color:#1e0010">c</span><span style="color:#960050;background-color:#1e0010">r</span><span style="color:#960050;background-color:#1e0010">i</span><span style="color:#960050;background-color:#1e0010">p</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">&gt;</span><span style="color:#960050;background-color:#1e0010"></span>
 {<span style="color:#f92672">%</span> <span style="color:#a6e22e">endif</span> <span style="color:#f92672">%</span>}
 </code></pre></div><p>其中用户ID可以在Daovoice注册好页面的应用设置中找到。<code>app_id</code>关键字之后
 在Next主题的配置文件博客<code>/themes/next/_config.yml</code>末尾中添加用户ID:</p>
@@ -363,19 +365,19 @@ daovoice_app_id: 用户ID
 <h3 id="hexo-neathtmljscss">添加hexo-neat压缩html,js,css</h3>
 <p>首先<code>npm install hexo-neat --save</code>
 在站点配置文件中添加</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#75715e"># hexo-neat</span>
-<span style="color:#75715e"># 博文压缩</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#75715e"># hexo-neat</span>
+<span style="color:#75715e"># 博文压缩</span>
 neat_enable: <span style="color:#66d9ef">true</span>
-<span style="color:#75715e"># 压缩html</span>
+<span style="color:#75715e"># 压缩html</span>
 neat_html:
   enable: <span style="color:#66d9ef">true</span>
   exclude:
-<span style="color:#75715e"># 压缩css</span>
+<span style="color:#75715e"># 压缩css</span>
 neat_css:
   enable: <span style="color:#66d9ef">true</span>
   exclude:
     - <span style="color:#e6db74">&#39;**/*.min.css&#39;</span>
-<span style="color:#75715e"># 压缩js</span>
+<span style="color:#75715e"># 压缩js</span>
 neat_js:
   enable: <span style="color:#66d9ef">true</span>
   mangle: <span style="color:#66d9ef">true</span>
@@ -397,8 +399,10 @@ npm config get prefix
 
       <footer>
   
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/r.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/r.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/python.min.js"></script>
 
   <script>
   hljs.configure({languages: []});

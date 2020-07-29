@@ -1,0 +1,57 @@
+---
+title: "jupyter使用"
+author: "Liripo"
+date: "2020-07-20"
+colorPage: "#252D3E"
+colorText: "#FFFFFF"
+colorFade: "#888888"
+colorAccent1: "#4A5570"
+colorAccent2: "#FFCACA"
+summary: "jupyter。"
+header:
+  caption: "jupyter"
+  image: 'header/custom_banner.png'
+  profile: 'header/custom_profile.png'
+output:
+  html_document:
+    toc: true
+---
+
+
+
+<div id="安装" class="section level1">
+<h1>安装</h1>
+<p>可以查看<a href="https://jupyter.org/">官网</a>
+之后使用<code>jupyter notebook</code>即可运行</p>
+</div>
+<div id="修改工作目录" class="section level1">
+<h1>修改工作目录</h1>
+<p>没有jupyter配置文件需要生成一个初始的配置文件</p>
+<pre class="r"><code> jupyter notebook --generate-config</code></pre>
+<p>之后会在命令行生成一个配置文件：<code>"C:\Users\Administrator\.jupyter\jupyter_notebook_config.py"</code></p>
+<p>查找<code>The directory to use for notebooks and kernels</code>字样
+修改#c.NotebookApp.notebook_dir = “”为所要的工作目录，记得去掉“#”号。</p>
+<p># 快捷键
+jupyter的快捷键帮助是中文的，可以直接看Help.</p>
+</div>
+<div id="jupyter使用r" class="section level1">
+<h1>jupyter使用R</h1>
+<p>网址<a href="https://github.com/IRkernel/IRkernel">github</a></p>
+</div>
+<div id="使用多个python版本" class="section level1">
+<h1>使用多个python版本</h1>
+<p>在其他python路径中安装ipykernel,第一个是你的其他python版本的具体路径</p>
+<pre class="python"><code>python3.7.exe -m pip install ipykernel</code></pre>
+<p>然后运行</p>
+<pre class="python"><code>python3.7.exe -m ipykernel install -h</code></pre>
+<p>查看帮助，发现有个–user 和–name –display-name参数可以使用
+所以接着运行</p>
+<pre class="python"><code>python3.7.exe -m ipykernel install --user --name python3.7 --display-name python3.7</code></pre>
+<p>之后运行</p>
+<pre class="python"><code>jupyter kernelspec list</code></pre>
+<p>应该会看到你的用户目录多了个文件夹,比如我的,因为我还装了R，所以有个ir</p>
+<pre class="python"><code>Available kernels:
+  python3      C:\Users\Liripo\AppData\Roaming\jupyter\kernels\python3
+  python3.7    C:\Users\Liripo\AppData\Roaming\jupyter\kernels\python3.7
+  ir           C:\ProgramData\jupyter\kernels\ir</code></pre>
+</div>

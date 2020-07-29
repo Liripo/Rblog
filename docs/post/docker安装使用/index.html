@@ -5,6 +5,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>docker安装使用 | Liripo</title>
+    <link rel="shortcut icon" href="../../image/title.svg" type="image/x-icon">
+  <script src="./fontawesome-free-5.11.2-web/fontawesome-free-5.11.2-web/js/all.js" crossorigin="anonymous"></script>
 
   <style>
   	:root {
@@ -64,11 +66,11 @@
 <h1 id="docker">安装docker</h1>
 <p>linux ubuntu</p>
 <p>1.安装依赖</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt-get install <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>    apt-transport-https <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>    ca-certificates <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>    curl <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>    software-properties-common
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt-get install <span style="color:#ae81ff">\</span>
+    apt-transport-https <span style="color:#ae81ff">\</span>
+    ca-certificates <span style="color:#ae81ff">\</span>
+    curl <span style="color:#ae81ff">\</span>
+    software-properties-common
 </code></pre></div><p>2.为了确认所下载软件包的合法性，需要添加软件源的 <code>GPG</code> 密钥。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ curl -fsSL https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu/gpg | sudo apt-key add -
 
@@ -114,8 +116,10 @@ sudo vim /etc/docker/daemon.json
 
       <footer>
   
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/r.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/r.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/python.min.js"></script>
 
   <script>
   hljs.configure({languages: []});

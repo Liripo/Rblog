@@ -5,10 +5,46 @@
     <link>/</link>
     <description>Recent content in Home on Liripo</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 28 Mar 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 28 Jul 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>flametree学习</title>
+      <link>/post/flametree%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Tue, 28 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/flametree%E5%AD%A6%E4%B9%A0/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>jupyter使用</title>
+      <link>/post/jupyter%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Mon, 20 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/jupyter%E4%BD%BF%E7%94%A8/</guid>
+      <description>jupyter。</description>
+    </item>
+    
+    <item>
+      <title>蒙特卡洛计算Π</title>
+      <link>/post/%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E8%AE%A1%E7%AE%97%CF%80/</link>
+      <pubDate>Mon, 20 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E8%AE%A1%E7%AE%97%CF%80/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ROC与AUC理解</title>
+      <link>/post/roc%E4%B8%8Eauc%E7%90%86%E8%A7%A3/</link>
+      <pubDate>Tue, 28 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/roc%E4%B8%8Eauc%E7%90%86%E8%A7%A3/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>docker安装使用</title>
@@ -20,12 +56,84 @@
     </item>
     
     <item>
+      <title>Rcpp</title>
+      <link>/post/rcpp/</link>
+      <pubDate>Sat, 28 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/rcpp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>R包开发</title>
       <link>/post/r%E5%8C%85%E5%BC%80%E5%8F%91/</link>
       <pubDate>Sat, 28 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>/post/r%E5%8C%85%E5%BC%80%E5%8F%91/</guid>
       <description>一些R包使用问题。</description>
+    </item>
+    
+    <item>
+      <title>R爬虫</title>
+      <link>/post/r%E7%88%AC%E8%99%AB/</link>
+      <pubDate>Sat, 28 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/r%E7%88%AC%E8%99%AB/</guid>
+      <description>R selenium</description>
+    </item>
+    
+    <item>
+      <title>TCGA</title>
+      <link>/post/tcga/</link>
+      <pubDate>Sat, 28 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/tcga/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>unbuntu</title>
+      <link>/post/unbuntu/</link>
+      <pubDate>Sat, 28 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/unbuntu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vim</title>
+      <link>/post/vim/</link>
+      <pubDate>Sat, 28 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/vim/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>富集分析超几何分布</title>
+      <link>/post/%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90%E8%B6%85%E5%87%A0%E4%BD%95%E5%88%86%E5%B8%83/</link>
+      <pubDate>Sat, 28 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90%E8%B6%85%E5%87%A0%E4%BD%95%E5%88%86%E5%B8%83/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>生存分析</title>
+      <link>/post/%E7%94%9F%E5%AD%98%E5%88%86%E6%9E%90/</link>
+      <pubDate>Sat, 28 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/%E7%94%9F%E5%AD%98%E5%88%86%E6%9E%90/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>shiny学习</title>
+      <link>/post/shiny%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Fri, 27 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/shiny%E5%AD%A6%E4%B9%A0/</guid>
+      <description></description>
     </item>
     
     <item>
@@ -342,25 +450,8 @@ liripo   ALL&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span sty
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/about/</guid>
-      <description>T。。。</description>
-    </item>
-    
-    <item>
-      <title>jupyter使用</title>
-      <link>/post/jupyter%E4%BD%BF%E7%94%A8/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/post/jupyter%E4%BD%BF%E7%94%A8/</guid>
-      <description>jupyter。</description>
-    </item>
-    
-    <item>
-      <title>蒙特卡洛计算Π</title>
-      <link>/post/%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E8%AE%A1%E7%AE%97%CF%80/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/post/%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E8%AE%A1%E7%AE%97%CF%80/</guid>
-      <description>蒙特卡洛估计Π。</description>
+      <description>我毕业于南方医科大学
+比较擅长R语言，熟悉python,SQL等。</description>
     </item>
     
   </channel>

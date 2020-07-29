@@ -5,6 +5,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>bamdst使用 | Liripo</title>
+    <link rel="shortcut icon" href="../../image/title.svg" type="image/x-icon">
+  <script src="./fontawesome-free-5.11.2-web/fontawesome-free-5.11.2-web/js/all.js" crossorigin="anonymous"></script>
 
   <style>
   	:root {
@@ -108,15 +110,15 @@ bed文件即是为了挑选目标区域，即感兴趣的位置。</li>
 </li>
 </ul>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#Chr    Pos     Raw Depth       Rmdup depth     Cover depth</span>
-chrM    <span style="color:#ae81ff">650</span>     <span style="color:#ae81ff">8</span>       <span style="color:#ae81ff">6</span>       <span style="color:#ae81ff">8</span>
-chrM    <span style="color:#ae81ff">651</span>     <span style="color:#ae81ff">8</span>       <span style="color:#ae81ff">6</span>       <span style="color:#ae81ff">8</span>
-chrM    <span style="color:#ae81ff">652</span>     <span style="color:#ae81ff">8</span>       <span style="color:#ae81ff">6</span>       <span style="color:#ae81ff">8</span>
-chrM    <span style="color:#ae81ff">653</span>     <span style="color:#ae81ff">9</span>       <span style="color:#ae81ff">6</span>       <span style="color:#ae81ff">9</span>
-chrM    <span style="color:#ae81ff">654</span>     <span style="color:#ae81ff">9</span>       <span style="color:#ae81ff">6</span>       <span style="color:#ae81ff">9</span>
-chrM    <span style="color:#ae81ff">655</span>     <span style="color:#ae81ff">9</span>       <span style="color:#ae81ff">6</span>       <span style="color:#ae81ff">9</span>
-chrM    <span style="color:#ae81ff">656</span>     <span style="color:#ae81ff">9</span>       <span style="color:#ae81ff">6</span>       <span style="color:#ae81ff">9</span>
-chrM    <span style="color:#ae81ff">657</span>     <span style="color:#ae81ff">9</span>       <span style="color:#ae81ff">6</span>       <span style="color:#ae81ff">9</span>
-chrM    <span style="color:#ae81ff">658</span>     <span style="color:#ae81ff">9</span>       <span style="color:#ae81ff">6</span>       <span style="color:#ae81ff">9</span>
+chrM    <span style="color:#ae81ff">650</span>     <span style="color:#ae81ff">8</span>       <span style="color:#ae81ff">6</span>       8
+chrM    <span style="color:#ae81ff">651</span>     <span style="color:#ae81ff">8</span>       <span style="color:#ae81ff">6</span>       8
+chrM    <span style="color:#ae81ff">652</span>     <span style="color:#ae81ff">8</span>       <span style="color:#ae81ff">6</span>       8
+chrM    <span style="color:#ae81ff">653</span>     <span style="color:#ae81ff">9</span>       <span style="color:#ae81ff">6</span>       9
+chrM    <span style="color:#ae81ff">654</span>     <span style="color:#ae81ff">9</span>       <span style="color:#ae81ff">6</span>       9
+chrM    <span style="color:#ae81ff">655</span>     <span style="color:#ae81ff">9</span>       <span style="color:#ae81ff">6</span>       9
+chrM    <span style="color:#ae81ff">656</span>     <span style="color:#ae81ff">9</span>       <span style="color:#ae81ff">6</span>       9
+chrM    <span style="color:#ae81ff">657</span>     <span style="color:#ae81ff">9</span>       <span style="color:#ae81ff">6</span>       9
+chrM    <span style="color:#ae81ff">658</span>     <span style="color:#ae81ff">9</span>       <span style="color:#ae81ff">6</span>       9
 </code></pre></div><ul>
 <li>
 <p>region.tsv.gz：记录bed文件每个区域的测序深度中位数覆盖率以及Coverage(FIX)？？，由于example的bed只有一个区域，所以可以直接去除以那个区域长度得到目标区域测序深度。</p>
@@ -144,9 +146,9 @@ $ expr 1603 - 649
 <li>uncover.bed :没有捕获区域</li>
 </ul>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cat example/MT-RNR1.bed
-chrM    <span style="color:#ae81ff">649</span>     <span style="color:#ae81ff">1603</span>
+chrM    <span style="color:#ae81ff">649</span>     1603
 $ cat uncover.bed
-chrM    <span style="color:#ae81ff">672</span>     <span style="color:#ae81ff">1603</span>
+chrM    <span style="color:#ae81ff">672</span>     1603
 </code></pre></div><h3 id="heading-2">可选参数</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#方括号中为程序默认的参数值</span>
    -f, --flank <span style="color:#f92672">[</span>200<span style="color:#f92672">]</span>   flank n bp of each region
@@ -170,8 +172,10 @@ chrM    <span style="color:#ae81ff">672</span>     <span style="color:#ae81ff">1
 
       <footer>
   
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/r.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/r.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/python.min.js"></script>
 
   <script>
   hljs.configure({languages: []});

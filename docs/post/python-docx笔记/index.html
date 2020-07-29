@@ -5,6 +5,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>python-docx笔记 | Liripo</title>
+    <link rel="shortcut icon" href="../../image/title.svg" type="image/x-icon">
+  <script src="./fontawesome-free-5.11.2-web/fontawesome-free-5.11.2-web/js/all.js" crossorigin="anonymous"></script>
 
   <style>
   	:root {
@@ -80,11 +82,11 @@ paragraph<span style="color:#f92672">.</span>style <span style="color:#f92672">=
 </code></pre></div><p>在空白文档加入段落，或者获取模板第四个段落<code>paragraph = document.paragraphs[3]</code>，可以在其后面使用add_run方法添加文字获得一个run对象，添加的字符格式是默认的，这时你可以对这个run进行字体加粗，斜体，字体名等操作，如：</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">run <span style="color:#f92672">=</span> paragraph<span style="color:#f92672">.</span>add_run(<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">dolor</span><span style="color:#e6db74">&#39;</span>)
 run<span style="color:#f92672">.</span>bold <span style="color:#f92672">=</span> True
-<span style="color:#75715e">#英文字体名修改</span>
+<span style="color:#75715e">#英文字体名修改</span>
 run<span style="color:#f92672">.</span>font<span style="color:#f92672">.</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">黑体</span><span style="color:#e6db74">&#39;</span>
-<span style="color:#75715e">#中文字体名修改</span>
+<span style="color:#75715e">#中文字体名修改</span>
 chinese <span style="color:#f92672">=</span> qn(<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">w:eastAsia</span><span style="color:#e6db74">&#39;</span>)
-run<span style="color:#f92672">.</span>_element<span style="color:#f92672">.</span>rPr<span style="color:#f92672">.</span>rFonts<span style="color:#f92672">.</span>set(chinese, <span style="color:#e6db74">u</span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">黑体</span><span style="color:#e6db74">&#39;</span>) <span style="color:#75715e">#u为unicode编码</span>
+run<span style="color:#f92672">.</span>_element<span style="color:#f92672">.</span>rPr<span style="color:#f92672">.</span>rFonts<span style="color:#f92672">.</span>set(chinese, <span style="color:#e6db74">u</span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">黑体</span><span style="color:#e6db74">&#39;</span>) <span style="color:#75715e">#u为unicode编码</span>
 </code></pre></div><p>当然，你也可以修改段落的style,但是我在实践中遇到字体无法修改的情况，可以自行尝试。</p>
 <p>标题添加就不说了，一般报告模板都会有的，但是记住，标题也是属于一个段落。</p>
 <p>对于表格，你可在段落<code>paragraphs</code>处使用方法<code>add_table</code>添加，在整篇文档段落计算时，表格不属于段落，反倒是添加的表格由行列，单元格组成，而单元格之中又包含了段落，段落中又可以使用run对象进行操作。</p>
@@ -98,8 +100,10 @@ cell<span style="color:#f92672">.</span>vertical_alignment <span style="color:#f
 
       <footer>
   
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/r.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/r.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/python.min.js"></script>
 
   <script>
   hljs.configure({languages: []});

@@ -5,6 +5,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>bioconductor的学习与使用 | Liripo</title>
+    <link rel="shortcut icon" href="../../image/title.svg" type="image/x-icon">
+  <script src="./fontawesome-free-5.11.2-web/fontawesome-free-5.11.2-web/js/all.js" crossorigin="anonymous"></script>
 
   <style>
   	:root {
@@ -68,23 +70,25 @@
 <p><a href="https://bioconductor.org/">官网</a>
 <a href="https://bioconductor.github.io/BiocWorkshops/">2018年bioconductor教程</a></p>
 <h1 id="r">R包安装</h1>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e">#官网安装</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e">#官网安装</span>
 <span style="color:#a6e22e">if </span>(<span style="color:#f92672">!</span><span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">BiocManager&#34;</span>))
     <span style="color:#a6e22e">install.packages</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">BiocManager&#34;</span>)
 BiocManager<span style="color:#f92672">::</span><span style="color:#a6e22e">install</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">your-package&#34;</span>)
 </code></pre></div><p>倘若下载速度慢，则更换镜像源</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e"># 先安装BiocManager，它位于CRAN </span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e"># 先安装BiocManager，它位于CRAN </span>
 <span style="color:#a6e22e">if</span>(<span style="color:#a6e22e">length</span>(<span style="color:#a6e22e">getOption</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">CRAN&#34;</span>))<span style="color:#f92672">==</span><span style="color:#ae81ff">0</span>) <span style="color:#a6e22e">options</span>(CRAN<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">https://mirrors.tuna.tsinghua.edu.cn/CRAN/&#34;</span>)
 <span style="color:#a6e22e">if</span>(<span style="color:#f92672">!</span><span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">BiocManager&#34;</span>)) <span style="color:#a6e22e">install.packages</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">BiocManager&#34;</span>,update <span style="color:#f92672">=</span> F,ask <span style="color:#f92672">=</span> F)
-<span style="color:#75715e"># 然后添加BioC的国内源，可以选清华或者中科大</span>
+<span style="color:#75715e"># 然后添加BioC的国内源，可以选清华或者中科大</span>
 <span style="color:#a6e22e">if</span>(<span style="color:#a6e22e">length</span>(<span style="color:#a6e22e">getOption</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">BioC_mirror&#34;</span>))<span style="color:#f92672">==</span><span style="color:#ae81ff">0</span>) <span style="color:#a6e22e">options</span>(BioC_mirror<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">https://mirrors.ustc.edu.cn/bioc/&#34;</span>)
 </code></pre></div><p>快速查找包的文档,如<code>browseVignettes(&quot;clusterProfiler&quot;)</code></p>
       </main>
 
       <footer>
   
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/r.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/r.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/python.min.js"></script>
 
   <script>
   hljs.configure({languages: []});

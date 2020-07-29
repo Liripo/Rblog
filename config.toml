@@ -90,7 +90,7 @@ theme = "hugo-calade"
 
 
 # additional settings
-languageCode = "zh-cn"
+LanguageCode = "Zh-cn"
 googleAnalytics = ""
 disqusShortname = ""
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]

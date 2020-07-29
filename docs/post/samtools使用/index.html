@@ -5,6 +5,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>samtools使用 | Liripo</title>
+    <link rel="shortcut icon" href="../../image/title.svg" type="image/x-icon">
+  <script src="./fontawesome-free-5.11.2-web/fontawesome-free-5.11.2-web/js/all.js" crossorigin="anonymous"></script>
 
   <style>
   	:root {
@@ -82,7 +84,7 @@ samtools view -bF12 abc.bam&gt;abc.F12.bam
 </code></pre></div><p>反之-f，就是提取指定flag的序列.当然还有其它参数，详情请&ndash;help</p>
 <h1 id="sort">sort</h1>
 <p>作用：对bam进行排序，一些软件需要使用排序后的bam，拿到bam先按照比对位置的顺序排一下，百利无一害。
-Usage: samtools sort [-n] [-m <!-- raw HTML omitted -->] &lt;in.bam&gt; &lt;out.prefix&gt;
+Usage: samtools sort [-n] [-m <!-- raw HTML omitted -->] &lt;in.bam&gt; &lt;out.prefix&gt; 
 -m 参数默认下是 500,000,000 即500M。每个线程运行内存大小。
 -n 设定排序方式按short reads的ID排序。默认下是按序列在fasta文件中的顺序（即header）和序列从左往右的位点排序。
 -@：设置排序和压缩的线程数，默认单线程
@@ -144,8 +146,10 @@ $ 表示一个read结束，修饰前面碱基;
 
       <footer>
   
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/r.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/r.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/python.min.js"></script>
 
   <script>
   hljs.configure({languages: []});
