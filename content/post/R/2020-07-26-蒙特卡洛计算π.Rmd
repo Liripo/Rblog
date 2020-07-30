@@ -6,15 +6,9 @@ summary: " "
 slug: 蒙特卡洛计算Π
 tags: R
 output:
-  html_document:
-    toc: true
-    dev: 'svg'
-    highlight: textmate
-    theme: flatly
+  blogdown::html_page:
+    highlight: zenburn
 ---
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(collapse = TRUE)
-```
 
 # π值的计算
 

@@ -18,7 +18,13 @@ relativeurls = true
 # Default is "public", but if you're using GitHub pages you
 # need to point this to "docs".
 publishDir = "docs"
-
+# additional settings
+languageCode = "Zh-cn"
+googleAnalytics = ""
+disqusShortname = ""
+ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
+preserveTaxonomyNames = true
+footnotereturnlinkcontents = "↩"
 # These settings specify the title for your site, and the name of
 # the Hugo theme that it uses.
 title = "Liripo"
@@ -88,13 +94,5 @@ theme = "hugo-calade"
     colorAccent1 = "#ff69b4" # first accent colour ("highlight")
     colorAccent2 = "#ba68c8" # second accent colour ("lowlight")
 
-
-# additional settings
-LanguageCode = "Zh-cn"
-googleAnalytics = ""
-disqusShortname = ""
-ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
-preserveTaxonomyNames = true
-footnotereturnlinkcontents = "↩"
 
 #----------my own 

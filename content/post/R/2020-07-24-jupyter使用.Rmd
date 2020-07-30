@@ -13,8 +13,8 @@ header:
   image: 'header/custom_banner.png'
   profile: 'header/custom_profile.png'
 output:
-  html_document:
-    toc: true
+  blogdown::html_page:
+    highlight: zenburn
 ---
 
 # 安装
