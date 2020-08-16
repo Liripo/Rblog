@@ -155,6 +155,8 @@ hasCJKLanguage = true
 
 参考文章：[https://mogeko.me/2020/079/](https://mogeko.me/2020/079/)
 
+更多的，可以看这篇文章:[https://www.xiangyunhuang.com.cn/2019/05/another-hello-markdown/](https://www.xiangyunhuang.com.cn/2019/05/another-hello-markdown/)
+
 ## 插入音乐
 
 [http://tool.liumingye.cn/music/](http://tool.liumingye.cn/music/)这网站下歌不错。
@@ -210,6 +212,41 @@ table tfoot {
 }
 table tfoot td {
   font-size: 14px;
+}
+```
+
+## hugo markdown
+
+hugo markdown是小于pandoc markdown的，所以想加入突出显示得改用html的mark标签。
+
+为了hugo能够解析markdown文件中的html标签，可以在config.toml文件加入
+
+```html
+[markup.goldmark.renderer]
+unsafe = true
+```
+
+这样就可以增加mark等突出显示的标签了。具体详见：[https://gohugo.io/news/0.60.0-relnotes/](https://gohugo.io/news/0.60.0-relnotes/)
+
+## 引入谷歌字体
+
+在主题的footer.html中加入
+
+```html
+<link rel="stylesheet" href="https://fonts.loli.net/css?family=Tangerine">
+```
+
+具体参考[https://sb.sb/blog/css-cdn/](https://sb.sb/blog/css-cdn/),将谷歌字体api，改为使用loli.net,[谷歌api](https://developers.google.com/fonts/docs/getting_started)。
+
+之后引入这个字体作为mark的css。
+
+```css
+/*加入突出高亮*/
+mark {
+  font-family: Tangerine;
+  font-weight: bold;
+  background-color: #333333;
+  text-shadow: 4px 4px 4px #aaa;
 }
 ```
 

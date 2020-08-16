@@ -94,6 +94,7 @@ theme = "hugo-calade"
     colorFade = "#888888"    # faded text colour
     colorAccent1 = "#6BB0DF" #"#ff69b4" # first accent colour ("highlight")
     colorAccent2 = "#ba68c8" # second accent colour ("lowlight")
-
+[markup.goldmark.renderer]
+unsafe = true
 
 #----------my own 
