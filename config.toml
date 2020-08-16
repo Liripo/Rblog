@@ -14,6 +14,8 @@ baseurl = "https://liripo.github.io"
 
 # Rewrite URLs to be relative to the current content.
 relativeurls = true
+#添加中文计数
+hasCJKLanguage = true 
 
 # Default is "public", but if you're using GitHub pages you
 # need to point this to "docs".
@@ -86,8 +88,7 @@ theme = "hugo-calade"
     siteHeader = "header/banner.png"
     siteProfile = "header/profile.png"
     description = "A website of one's own"
-    footer = "Build by blogdown and the theme of calade."
-    twitterImage = "https://djnavarro.github.io/hugo-calade/header/caladown.png"
+    footer = ""
     colorPage = "#333333"    # background colour
     colorText = "#dddddd"    # main text colour
     colorFade = "#888888"    # faded text colour

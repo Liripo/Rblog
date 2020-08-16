@@ -1,7 +1,9 @@
 <div>
   <h1>{{ .Title | markdownify }}</h1>
   <h3>
-    {{ with .Params.author }}by {{.}}{{ end }}{{ if (gt .Params.date 0) }}, {{ .Date.Format "02 Jan 2006" }}{{ end }}
+    {{ if (gt .Params.date 0) }}{{ .Date.Format "02 Jan 2006" }}{{ end }}
   </h3>
+   <h5 id="wc">{{ .WordCount }} Words|Read in about {{ .ReadingTime }}       Min|本文总阅读量<span id="busuanzi_value_page_pv"></span>次</h5>
+    </h5>
   <br><br>
 </div>

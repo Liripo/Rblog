@@ -16,7 +16,7 @@ tags: "analysis"
 
 由于需要使用图片，这里我使用pdf文件分享，懒得把图片保存在云床上或者放在网站中了，虽然pdf也是放网站里，但是只需要操作一遍呀。（果然有图片什么的最烦了！）
 
-==pdf路径：[pdf](../../pdf/mega.pdf)，看后面内容直接使用pdf吧。==
+==pdf路径：[pdf](../../pdf/Mega使用及进化树.pdf)，看后面内容直接使用pdf吧。==
 
 ![image-20200815212723220](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20200815212723220.png)
 
