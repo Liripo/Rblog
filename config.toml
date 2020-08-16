@@ -92,7 +92,7 @@ theme = "hugo-calade"
     colorPage = "#333333"    # background colour
     colorText = "#dddddd"    # main text colour
     colorFade = "#888888"    # faded text colour
-    colorAccent1 = "#ff69b4" # first accent colour ("highlight")
+    colorAccent1 = "#6BB0DF" #"#ff69b4" # first accent colour ("highlight")
     colorAccent2 = "#ba68c8" # second accent colour ("lowlight")
 
 
