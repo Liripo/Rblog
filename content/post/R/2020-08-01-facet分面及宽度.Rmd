@@ -1,0 +1,56 @@
+---
+title: "ggplot2 facet分面及宽度"
+author: "Liripo"
+date: '2020-07-28'
+slug: ggplot2-facet分面及宽度
+tags: R
+output:
+  html_document:
+    toc: true
+    code_folding: "hide"
+    highlight: textmate
+    theme: flatly
+  blogdown::html_page:
+    highlight: zenburn
+---
+
+>最初,我在工作的时候绘制柱状图分面时遇到了柱子不等长的情况，然后使用ggtree::facet_widths解决了。之后谷歌搜索**ggplot2 facet width**发现ggplot2 facet_grid已经支持可以改变分面宽度的参数。
+
+```{r echo=TRUE}
+library(tidyverse)
+set.seed(2020)
+iris_n <- slice_sample(iris,n = 50)
+iris_long <- iris_n %>% 
+  pivot_longer(cols = -Species,names_to = "x",values_to = "y")
+iris_long <- iris_long %>% 
+  filter(Species != "versicolor" | x != "Sepal.Length")
+p <- ggplot(iris_long,aes(x,y)) + geom_col() + 
+  facet_grid(cols = vars(Species),scales = "free_x")
+p
+```
+
+可以看到这样有一个柱子宽度不等的情况,因为默认分面等宽，现在ggplot2可以通过添加参数`space = "free_x`,你可以看看[这篇博客](https://mattherman.info/blog/fix-facet-width/)举得例子（之前也弄过一样的，所以链接过去作个记录），或者
+```{r echo=TRUE}
+ggtree::facet_widths(p,widths = c(4,3,4))
+```
+而这个函数源如下
+```{r echo=TRUE}
+ggtree::facet_widths
+```
+
+类似于[stackoverflow](https://stackoverflow.com/questions/49110877/how-to-adjust-facet-size-manually)上的解决方案，不过多了`as.ggplot`。
+
+```{r echo=TRUE}
+library(grid)
+gt = ggplot_gtable(ggplot_build(p))
+gt$layout
+```
+
+可以看到name列panel开头的有三个，对应于p的三个分面，对应的l列分别为5，7，9
+
+```{r echo=TRUE}
+gt$widths[c(5,7,9)] <- gt$widths[c(5,7,9)]*c(4,3,4)
+grid.draw(gt)
+```
+
+

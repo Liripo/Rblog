@@ -1,8 +1,8 @@
 ---
-title: awk使用
-date: 2019-11-11 19:41:23
+title: awk
+date: 2019-11-11
+slug: awk
 tags: awk
-categories: linux三剑客
 ---
 awk逐行读入文件，以空格为默认分隔符将每行切片，切开的部分再进行各种分析处理。
 [awk书籍github](https://github.com/wuzhouhui/awk)
@@ -93,4 +93,16 @@ awk '(ARGIND==1 && NR%4==1){split($0,a,"_");b[i]=a[2];i++}(NR!=FNR && FNR%4==1){
 awk 'ARGIND==1 && NR%4==1{name[i]=$0;i++}ARGIND==2 && FNR%4==1{split($0,a,"_");print name[j]""a[2];j++}ARGIND==2 && FNR%4!=1{print}' R1.fastq R2.fastq >umi_R2.fastq
 ```
 
-4.
+4.一行的fasta文件变成60bp碱基一行的fasta文件
+
+```R
+awk -v FS= '/^>/{print;next}{for (i=0;i<=NF/60;i++) {for (j=1;j<=60;j++) printf "%s", $(i*60 +j); print ""}}' test.fa
+```
+
+或者`fold -w 60 test.fa`
+
+5.多行的fasta文件合并为一行
+
+```R
+cat test_multiline.fa | awk '/^>/{if(N>0) printf("\n"); ++N; printf("%s\n",$0);next;} {printf("%s",$0);}END{printf("\n");}'
+```

@@ -10,7 +10,7 @@
 #
 #    baseurl = "/hugo-calade/"
 #
-baseurl = "https://liripo.netlify.app/"
+baseurl = "https://liripo.github.io"
 
 # Rewrite URLs to be relative to the current content.
 relativeurls = true
@@ -20,7 +20,7 @@ relativeurls = true
 publishDir = "docs"
 # additional settings
 languageCode = "Zh-cn"
-googleAnalytics = ""
+googleAnalytics = "UA-155993181-1"
 disqusShortname = ""
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 preserveTaxonomyNames = true

@@ -2,8 +2,7 @@
 title: vcf文件注释
 mathjax: true
 date: 2020-01-20 23:58:40
-tags: annovar
-categories: 
+tags:  "analysis"
 ---
 
 

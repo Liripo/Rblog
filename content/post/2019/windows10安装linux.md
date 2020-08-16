@@ -3,7 +3,6 @@ title: windows10安装linux
 mathjax: true
 date: 2020-03-21 14:27:47
 tags: linux
-summary: "windows10安装ubuntu，以及源码安装python到指定目录，及更多相关配置。温馨提示：目前已有wsl2,推荐安装wsl2。"
 ---
 windows10安装ubuntu，以及源码安装python到指定目录，及更多相关配置。
 

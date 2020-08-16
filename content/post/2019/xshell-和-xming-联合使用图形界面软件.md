@@ -1,7 +1,7 @@
 ---
 title: xshell 和 xming 联合使用图形界面软件
 date: 2019-12-23 10:59:34
-tags: xming
+tags:  linux
 ---
 
 xmanger 是与xshell搭配的图形界面管理器，需要付费，作为替代，使用xming，只是运行没那么快。
@@ -17,5 +17,5 @@ xmanger 是与xshell搭配的图形界面管理器，需要付费，作为替代
 3. 配置xshell,连接-》SSH -> 隧道-》
 在x11 转移中设置xdisplay为localhost:0.0
 4.  配置完成后，重新连接服务器，
-  启动图形界面软件，如spyder,就可以在xming上启动了。
+    启动图形界面软件，如spyder,就可以在xming上启动了。
 
