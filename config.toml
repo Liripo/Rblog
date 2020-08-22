@@ -11,7 +11,7 @@
 #    baseurl = "/hugo-calade/"
 #
 baseurl = "https://liripo.github.io"
-
+Paginate = 10
 # Rewrite URLs to be relative to the current content.
 relativeurls = true
 #添加中文计数
@@ -22,6 +22,7 @@ hasCJKLanguage = true
 publishDir = "docs"
 # additional settings
 languageCode = "Zh-cn"
+copyright = "Liripo"
 googleAnalytics = "UA-155993181-1"
 disqusShortname = ""
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
@@ -96,5 +97,8 @@ theme = "hugo-calade"
     colorAccent2 = "#ba68c8" # second accent colour ("lowlight")
 [markup.goldmark.renderer]
 unsafe = true
-
+[markup.tableOfContents]
+    endLevel = 3
+    ordered = false
+    startLevel = 1
 #----------my own 

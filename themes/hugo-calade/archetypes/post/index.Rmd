@@ -1,7 +1,11 @@
 ---
-title: "{{ title }}"
-summary: ""
-author: ""
-tags: []
-date: {{ date }}
+title: {{ title}}
+author: "Liripo"
+date: Sys.date
+slug: {{ title}}
+tags: 
+output:
+  blogdown::html_page:
+    highlight: zenburn
+    toc: true
 ---

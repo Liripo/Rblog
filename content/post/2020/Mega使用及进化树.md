@@ -88,6 +88,10 @@ tags: "analysis"
 
 可以选择[iTol](https://itol.embl.de/)或者R包ggtree,由于我是个gg控，所以先选择ggtree来玩玩呗。
 
+[ggtree](https://yulab-smu.github.io/treedata-book)的书籍。
+
+
+
 # 序列比对分析
 
 1.序列相似性比较和序列同源性分析

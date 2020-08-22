@@ -1,6 +1,9 @@
+<!--除非设置toc为false,否则字数大于400的将生成目录-->
 {{ if (.Params.toc) }}
 <aside>
-    <div align="center">Table of Contents</div>
-    {{.TableOfContents}}
+  <div id='anchors-navbar'>
+  <i class='fas fa-anchor'></i>
+  {{.TableOfContents}}
+  </div>
 </aside>
 {{ end }}

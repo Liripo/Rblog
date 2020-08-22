@@ -2,6 +2,7 @@
 title: blogdown及hugo使用主题修改
 date: "2020-08-16"
 tags: "R"
+toc: true
 ---
 
 # blogdown
@@ -250,3 +251,360 @@ mark {
 }
 ```
 
+## 引入行内公式
+
+我通常会用符号\$作为一个行内数学公式的标识符。但是貌似现在除了Pandoc会解析外，其他都没有这个支持。
+
+[https://yihui.org/cn/2017/04/mathjax-markdown/](https://yihui.org/cn/2017/04/mathjax-markdown/)提到了怎么修改。
+
+[https://gohugo.io/getting-started/configuration-markup/#goldmark](https://gohugo.io/getting-started/configuration-markup/#goldmark)hugo配置文件教程。
+
+目前默认使用goldmark渲染markdown。（注：没弄好。）
+
+## 修改table目录
+
+正如上面goldmark配置链接，默认
+
+```html
+ [markup.tableOfContents]
+    endLevel = 3
+    ordered = false
+    startLevel = 2
+```
+
+开始解析是从标题head2 开始，改成1开始。
+
+## 浮动目录
+
+[link链接修改](https://css-tricks.com/css-basics-styling-links-like-boss/)
+
+[hugo shortcode](https://fakedev.com/2020/hugo-custom-shortcodes-template.html)
+
+[hugo toc修改](https://linuxer.io/posts/hugo-toc/)
+
+对于普通的markdown文件，可以使用{{.TableOfContents}}进行设置，对于这个主题，你可以修改主题文件中的toc.html
+
+```html
+{{ if (.Params.toc) }}
+<aside>
+  <div id='anchors-navbar'>
+  <i class='fas fa-anchor'></i>
+  {{.TableOfContents}}
+  </div>
+</aside>
+{{ end }}
+```
+
+之后根据class id属性修改css。
+
+```CSS
+/* formatting table of contents */
+#TableOfContents {
+    background: #333399;
+    display: table;
+    font-size: 75%;
+    margin-bottom: 1em;
+    padding: 0px;
+    width: auto;
+}
+#anchors-navbar {
+    /*border: 1px solid;*/
+    /*border-radius: 1px;*/
+    -webkit-box-shadow: 10px 20px 30px 10px teal;
+    /*box-shadow: 0 6px 12px #333333;*/
+    background-clip: padding-box;
+    padding: 6px 6px;
+    position: fixed;
+    right: 50px;
+    top: 68px;
+    font-size: 14px;
+    /*white-space: nowrap;*/
+    z-index: 999;
+    cursor: pointer;
+    text-align: left;
+    max-height: 50%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    /*display: table;*/
+    width: auto;
+    max-width: 300px;
+    background: #333399;
+}
+
+#anchors-navbar ul{
+    display: none;
+    text-align: left;
+    padding-right: 10px;
+    padding-left: 18px;
+    padding-top: 5px;
+    list-style-type: lower-greek;
+    margin-left: 10px;
+}
+
+#anchors-navbar:hover ul{
+    display: block;
+}
+
+#anchors-navbar ul li a {
+    text-decoration: none;
+    border-bottom: none;
+    font-size: 18px;
+    color: #ff69b4;
+    background: 0 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    font-weight: bold;
+}
+
+#anchors-navbar ul li a:hover {
+    text-decoration: underline;
+    font-weight: bold;
+    color: #CCCCCC;
+}
+
+#anchors-navbar ul li .title-icon {
+    padding-right: 4px;
+}
+.fa-anchor {
+    color:#FF6600;
+    /*background-color: #333333;*/
+    text-shadow: 1px 1px 1px #ccc;
+    font-size: 2em;
+}
+```
+
+**加入js**
+
+```javascript
+iterativeUL: function($dom) {
+    var li_list = []
+    $dom.children("li").each(function(i, item) {
+        var _li = { 
+            url: $(item).children("a").attr("href"), 
+            name: $(item).children("a").text(),
+            children: []
+        }   
+        $sub_ul = $(item).children("ul")
+        if ($sub_ul.length > 0) {
+            _li.children = main.iterativeUL($sub_ul)
+        }   
+        li_list.push(_li)
+    })  
+    return li_list
+};
+iterativeUI: function(root, template, prefix) {
+    template += "<ul>"
+    $.each(root, function(i, item) {
+        var next_prefix = prefix + String(i+1) + "." 
+        template += '<li>'+
+                        '<i class="fa fa-hand-o-right" aria-hidden="true"></i>'+
+                        '<span class="title-icon "></span>'+
+                        '<a href="99991997"><b>99991998  </b>99991999</a>'
+                           .replace("99991997", item.url)
+                           .replace("99991999", item.name)
+                           .replace("99991998", next_prefix) +
+                    '</li>'
+        if (item.children.length > 0) {
+            template = main.iterativeUI(item.children, template, next_prefix)
+        }   
+    })  
+    template += "</ul>"
+    return template
+};
+initNavigations: function() {
+    var $navigations = $("#TableOfContents");
+    /* 这是个大坑, 需要大于号>来限制只选择一级子元素，否则会有多组ul被匹配到 */
+    var root = main.iterativeUL($("#TableOfContents > ul"))
+    if (root.length <= 0) {
+        return;
+    }
+
+    var html = main.iterativeUI(root, '', '')
+
+    //重新替换Toc模板
+    $navigations.html(html)
+
+    //由于导航栏固定,所以调整目录锚点往上偏移导航栏高度的距离
+    var fixSet = $("#main-navbar").height() + 10; 
+    $('nav#TableOfContents a[href^="#"][href!="#"]').click(function(e) {
+        e.preventDefault();
+        $('html, body').animate({scrollTop: $(decodeURI(this.hash)).offset().top - fixSet}, 400);
+    }); 
+};
+```
+
+至于Rmarkdown,你可以修改后缀名.Rmd为.Rmarkdown,这两个区别见[https://bookdown.org/yihui/blogdown/output-format.html](https://bookdown.org/yihui/blogdown/output-format.html)
+
+或者knitr编译成.md文件，然后由hugo解析。
+
+[http://estebanmoro.org/post/2019-02-04-setting-up-your-blog-with-rstudio-and-blogdown-iii-modify-your-theme/](http://estebanmoro.org/post/2019-02-04-setting-up-your-blog-with-rstudio-and-blogdown-iii-modify-your-theme/)
+
+[https://dadascience.design/post/r-some-tricks-when-working-with-blogdown-hugo-working-draft/](https://dadascience.design/post/r-some-tricks-when-working-with-blogdown-hugo-working-draft/)
+
+当然，最好的方法是直接修改blogdown的pandoc模板，blogdown运行`blogdown::serve_site`等函数使用bloddown::html_page直接生成.html文件的，中间是使用pandoc进行markdown解析的。
+
+```R
+blogdown:::pkg_file('resources', 'template-minimal.html')
+```
+
+可以找到这个简单的模板文件。
+
+原来的：
+
+```R
+$if(toc)$
+<div id="$idprefix$TOC">
+$toc$
+$endif$
+```
+
+可以加上刚刚使用toc float的类
+
+```R
+$if(toc)$
+<aside>
+<div id='anchors-navbar'>
+<i class='fas fa-anchor'></i>
+<div id="$idprefix$TOC">
+$toc$
+</div>
+</div>
+</aside>
+$endif$
+```
+
+这样就解决了。
+
+但是这样可不是长久之计，毕竟一更新这个包不就没了。
+
+还有高亮跟加入toc在yaml中使用
+
+```R
+output:
+  blogdown::html_page:
+    highlight: zenburn
+    toc: true
+```
+
+发现只有这个高亮适合这主题。
+
+## **添加分页**
+
+[https://bookdown.org/yihui/blogdown/templates.html#how-to](https://bookdown.org/yihui/blogdown/templates.html#how-to)
+
+[https://lvv.me/posts/2019/12/26_hugo_theme_dev_tips/](https://lvv.me/posts/2019/12/26_hugo_theme_dev_tips/)
+
+最后我的list文件是这样的
+
+```html
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+
+{{ partial "header.html" . }}
+
+<body>
+{{ partial "default_header_image.html" . }}
+
+<div class="main-content 
+site-main section-inner thin animated fadeIn faster">
+
+{{ partial "menu_strip.html" . }}
+
+<h1>{{ .Title | markdownify }}</h1>
+
+{{ .Content }}
+
+<div class="prettylistcontainer">
+<ul class="prettylist">
+  <!-- range (where .Data.Pages "Section" "!=" "") -->
+   {{ $paginator := .Paginate .Data.Pages }}
+   {{ range $paginator.Pages }}
+<li class="prettylist">
+<p class="prettylist">
+<a href="{{ .URL }}">{{ .Title | markdownify }}</a>&nbsp;&nbsp;
+<span class="prettylistdate">{{ .Date.Format "02 Jan 2006" }}</span>
+<div class="posts-group">
+
+      
+            
+            
+<br>
+<!-- 
+<span class="prettylistsummary">{{ .Summary | markdownify }}</span>
+-->
+</p>
+</li>
+{{ end }}
+</ul>
+</div>
+{{ partial "pagination.html" . }} 
+{{ partial "footer.html" . }}
+
+</div>
+</body>
+</html>
+```
+
+\partial目录下的pagination.html文件如下
+
+```html
+ {{ if or (.Paginator.HasPrev) (.Paginator.HasNext) }}
+ <div class="pagination">
+     {{- if .Paginator.HasPrev }}
+     <a class="pagination__item pagination__item--prev btn" href="{{ .Paginator.Prev.URL }}">«</a>
+     {{- end }}
+     <span class="pagination__item pagination__item--current">{{ .Paginator.PageNumber }}/{{ .Paginator.TotalPages }}</span>
+     {{- if .Paginator.HasNext }}
+     <a class="pagination__item pagination__item--next btn" href="{{ .Paginator.Next.URL }}">»</a>
+     {{- end }}
+ </div>
+ {{ end }}  
+```
+
+之后就是加css了，
+
+```css
+/*增加文章分页css*/
+.pagination {
+   margin-top: 20px
+}
+
+.pagination__item {
+  display: inline-block;
+  padding: 10px 15px;
+   font-weight: 700;
+   color: #333333;
+   background: #336633
+}
+
+.pagination__item:hover, .pagination__item--current {
+  color: #fff;
+  background: #535e75
+}
+```
+
+每页显示多少文章数，在站点配置文件改,默认10。
+
+```R
+Paginate = 10
+```
+
+具体看文章:[https://fffou.com/post/2020-05-14/](https://fffou.com/post/2020-05-14/)
+
+## 添加RSS
+
+hugo默认有RSS，你仔细看你的网站会发现有一个index.xml文件，但是谷歌插件不会自动识别这个文件，必须打开，不大友好。
+
+在header.html添加，
+
+```
+<link rel="alternate" type="application/rss+xml" href="https://liripo.github.io/index.xml" title="Liripo">
+```
+
+这样会在你整个网站添加链接，不想的话可以只添加到你的主页。
+
+## 添加站内搜素
+
+[https://palant.info/2020/06/04/the-easier-way-to-use-lunr-search-with-hugo/](https://palant.info/2020/06/04/the-easier-way-to-use-lunr-search-with-hugo/)

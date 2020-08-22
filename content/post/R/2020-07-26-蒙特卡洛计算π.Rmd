@@ -8,6 +8,7 @@ tags: R
 output:
   blogdown::html_page:
     highlight: zenburn
+    toc: true
 ---
 
 # π值的计算

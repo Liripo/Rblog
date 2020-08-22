@@ -1,4 +1,5 @@
 ---
-title: ''
-date: ''
+title: {{ title}}
+date:  Sys.date
+tag:
 ---
