@@ -1,17 +1,10 @@
 ---
-title: "NCBI学习"
+title: "blast学习"
 author: "Liripo"
 date: '2020-08-02'
 slug: NCBI
 tags: bio
-output:
-  html_document:
-    toc: true
-    code_folding: "hide"
-    highlight: textmate
-    theme: flatly
-  blogdown::html_page:
-    highlight: zenburn
+toc: true
 ---
 最新的blast可以在页面[ftp://ftp.ncbi.nih.gov/blast/executables/LATEST/](ftp://ftp.ncbi.nih.gov/blast/executables/LATEST/)找到。
 
