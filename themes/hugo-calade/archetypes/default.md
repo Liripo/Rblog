@@ -1,5 +1,6 @@
 ---
-title: {{ title}}
-date:  Sys.date
+title:  ''
+author: Liripo
+date:  
 tag:
 ---

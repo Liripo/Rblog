@@ -13,12 +13,12 @@
     
     
     <item>
-      <title>unbuntu</title>
-      <link>/post/unbuntu/</link>
+      <title>linux软件安装及R、R包安装</title>
+      <link>/post/linux%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E5%8F%8Arr%E5%8C%85%E5%AE%89%E8%A3%85/</link>
       <pubDate>Sat, 28 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/unbuntu/</guid>
-      <description></description>
+      <guid>/post/linux%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E5%8F%8Arr%E5%8C%85%E5%AE%89%E8%A3%85/</guid>
+      <description>apt卸载软件 内容如下： 卸载软件：sudo apt-get remove 软件名(+版本号) 卸载软件并删除依赖：sudo apt-get remove &amp;ndash;auto-remove 软件名(+版本号) 清除软件：sudo apt-get purge 软</description>
     </item>
     
     <item>

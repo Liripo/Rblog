@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>Zh-cn</language>
     <copyright>Liripo</copyright>
-    <lastBuildDate>Sun, 16 Aug 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 26 Aug 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>ggtree</title>
+      <link>/post/ggtree/</link>
+      <pubDate>Wed, 26 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/ggtree/</guid>
+      <description>code.sourceCode span { display: inline-block; line-height: 1.25; } code.sourceCode span { color: inherit; text-decoration: inherit; } code.sourceCode span:empty { height: 1.2em; } .sourceCode { overflow: visible; } code.sourceCode { white-space: pre; position: relative; } div.sourceCode { margin: 1em 0; } pre.sourceCode { margin: 0; } @media screen { div.sourceCode { overflow: auto; } } @media print { code.sourceCode { white-space: pre-wrap; } code.sourceCode span { text-indent: -5em; padding-left: 5em; }</description>
+    </item>
     
     <item>
       <title>blogdown及hugo使用主题修改</title>
@@ -22,11 +31,11 @@
     </item>
     
     <item>
-      <title>Mega使用及进化树</title>
-      <link>/post/mega%E4%BD%BF%E7%94%A8%E5%8F%8A%E8%BF%9B%E5%8C%96%E6%A0%91/</link>
+      <title>Mega使用及多序列比对</title>
+      <link>/post/mega%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%A4%9A%E5%BA%8F%E5%88%97%E6%AF%94%E5%AF%B9/</link>
       <pubDate>Sat, 15 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/mega%E4%BD%BF%E7%94%A8%E5%8F%8A%E8%BF%9B%E5%8C%96%E6%A0%91/</guid>
+      <guid>/post/mega%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%A4%9A%E5%BA%8F%E5%88%97%E6%AF%94%E5%AF%B9/</guid>
       <description>安装 https://www.megasoftware.net/，下载windows的GUI版本，要使用CC（命令行）版本&amp;ndash;配置好</description>
     </item>
     
@@ -40,7 +49,7 @@
     </item>
     
     <item>
-      <title>NCBI学习</title>
+      <title>blast学习</title>
       <link>/post/ncbi/</link>
       <pubDate>Sun, 02 Aug 2020 00:00:00 +0000</pubDate>
       
@@ -103,6 +112,15 @@
     </item>
     
     <item>
+      <title>linux软件安装及R、R包安装</title>
+      <link>/post/linux%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E5%8F%8Arr%E5%8C%85%E5%AE%89%E8%A3%85/</link>
+      <pubDate>Sat, 28 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/linux%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E5%8F%8Arr%E5%8C%85%E5%AE%89%E8%A3%85/</guid>
+      <description>apt卸载软件 内容如下： 卸载软件：sudo apt-get remove 软件名(+版本号) 卸载软件并删除依赖：sudo apt-get remove &amp;ndash;auto-remove 软件名(+版本号) 清除软件：sudo apt-get purge 软</description>
+    </item>
+    
+    <item>
       <title>Rcpp</title>
       <link>/post/rcpp/</link>
       <pubDate>Sat, 28 Mar 2020 00:00:00 +0000</pubDate>
@@ -135,15 +153,6 @@
       <pubDate>Sat, 28 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>/post/tcga/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>unbuntu</title>
-      <link>/post/unbuntu/</link>
-      <pubDate>Sat, 28 Mar 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/post/unbuntu/</guid>
       <description></description>
     </item>
     

@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>Zh-cn</language>
     <copyright>Liripo</copyright>
-    <lastBuildDate>Sun, 16 Aug 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 26 Aug 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,27 +15,27 @@
     <item>
       <title>R</title>
       <link>/tags/r/</link>
-      <pubDate>Sun, 16 Aug 2020 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 26 Aug 2020 00:00:00 +0000</pubDate>
       
       <guid>/tags/r/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>analysis</title>
-      <link>/tags/analysis/</link>
+      <title>bio</title>
+      <link>/tags/bio/</link>
       <pubDate>Sat, 15 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/analysis/</guid>
+      <guid>/tags/bio/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>bio</title>
-      <link>/tags/bio/</link>
-      <pubDate>Sun, 02 Aug 2020 00:00:00 +0000</pubDate>
+      <title>analysis</title>
+      <link>/tags/analysis/</link>
+      <pubDate>Fri, 14 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/bio/</guid>
+      <guid>/tags/analysis/</guid>
       <description></description>
     </item>
     

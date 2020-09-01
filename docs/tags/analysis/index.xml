@@ -7,19 +7,10 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>Zh-cn</language>
     <copyright>Liripo</copyright>
-    <lastBuildDate>Sat, 15 Aug 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 14 Aug 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/analysis/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Mega使用及进化树</title>
-      <link>/post/mega%E4%BD%BF%E7%94%A8%E5%8F%8A%E8%BF%9B%E5%8C%96%E6%A0%91/</link>
-      <pubDate>Sat, 15 Aug 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/post/mega%E4%BD%BF%E7%94%A8%E5%8F%8A%E8%BF%9B%E5%8C%96%E6%A0%91/</guid>
-      <description>安装 https://www.megasoftware.net/，下载windows的GUI版本，要使用CC（命令行）版本&amp;ndash;配置好</description>
-    </item>
     
     <item>
       <title>去批次效应</title>

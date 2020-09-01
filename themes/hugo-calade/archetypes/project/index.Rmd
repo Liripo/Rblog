@@ -1,7 +1,6 @@
 ---
 title: "{{ title }}"
-summary: ""
-author: ""
+author: Liripo
 tags: []
 date: {{ date }}
 ---
