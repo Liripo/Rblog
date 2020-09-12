@@ -101,4 +101,6 @@ unsafe = true
     endLevel = 3
     ordered = false
     startLevel = 1
+[outputs]
+    home = ["HTML", "RSS", "JSON"]
 #----------my own 

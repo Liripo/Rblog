@@ -1,3 +1,8 @@
+<div id="fastSearch">
+   <input id="searchInput" tabindex="0">
+   <ul id="searchResults">
+   </ul>
+</div>
 <footer>
   <!-- highlight.js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script>
@@ -5,6 +10,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/r.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/python.min.js"></script>
   <script src ="{{ "/js/search.js" | relURL }}"></script>
+  <script src="{{ "/js/fuse.js" | relURL }}"></script> <!-- download and copy over fuse.js file from fusejs.io -->
+ <script src="{{"/js/fastsearch.js" | relURL }}"></script>
 
   <script>
   hljs.configure({languages: []});
@@ -13,9 +20,10 @@
   <!--添加不蒜子-->
   <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
   <span id="busuanzi_container_site_pv">本站总访问量<span id       ="busuanzi_value_site_pv"></span>次</span>
-  <span id="busuanzi_container_site_uv">
-    本站访客数<span id="busuanzi_value_site_uv"></span>人次
-</span>
+  <br>
+  <span >
+    <mark>CMD+/</mark>对网站进行搜索
+  </span>
   <!---->
   {{ partial "foot_custom.html" . }}
   {{ with .Site.Params.footer }}

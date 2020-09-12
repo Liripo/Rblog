@@ -1,47 +1,36 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.LanguageCode }}">
 
-{{ partial "header.html" . }}
+  {{ partial "header.html" . }}
 
-<body>
-{{ partial "default_header_image.html" . }}
+  <body>
+    {{ partial "default_header_image.html" . }}
 
-<div class="main-content 
-site-main section-inner thin animated fadeIn faster">
+    <div class="main-content">
 
-{{ partial "menu_strip.html" . }}
+      {{ partial "menu_strip.html" . }}
 
-<h1>{{ .Title | markdownify }}</h1>
+      <h1>{{ .Title | markdownify }}</h1>
 
-{{ .Content }}
+      {{ .Content }}
 
-<div class="prettylistcontainer">
-<ul class="prettylist">
-  <!-- range (where .Data.Pages "Section" "!=" "") -->
-   {{ $paginator := .Paginate .Data.Pages }}
-   {{ range $paginator.Pages }}
-<li class="prettylist">
-<p class="prettylist">
-<a href="{{ .URL }}">{{ .Title | markdownify }}</a>&nbsp;&nbsp;
-<span class="prettylistdate">{{ .Date.Format "02 Jan 2006" }}</span>
-<div class="posts-group">
+      <div class="prettylistcontainer">
+      <ul class="prettylist">
+        {{ range (where .Data.Pages "Section" "!=" "") }}
+        <li class="prettylist">
+          <p class="prettylist">
+            <a href="{{ .URL }}">{{ .Title | markdownify }}</a>&nbsp;&nbsp;
+            <span class="prettylistdate">{{ .Date.Format "02 Jan 2006" }}</span>
+            <!--<br>
+            <span class="prettylistsummary">{{ .Summary | markdownify }}</span>-->
+          </p>
+        </li>
+        {{ end }}
+      </ul>
+      </div>
 
-      
-            
-            
-<br>
-<!-- 
-<span class="prettylistsummary">{{ .Summary | markdownify }}</span>
--->
-</p>
-</li>
-{{ end }}
-</ul>
-</div>
-{{ partial "pagination.html" . }} 
-{{ partial "footer.html" . }}
+      {{ partial "footer.html" . }}
 
-</div>
-</body>
+    </div>
+  </body>
 </html>
-

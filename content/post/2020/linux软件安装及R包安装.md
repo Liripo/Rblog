@@ -22,7 +22,12 @@ conda install r-base == 4.0.2
 
 即可。
 
-## R更新
+## R包更新
 
-我认为最好的方式还是重新下载，R包再慢慢更，反正在windows使用Installr之后使用Bioconductor让我非常痛苦，而且这软件更新也是重新安装你现有的R包，你完全可以把你R目前所含的包名弄成出来，然后install.package更新之类的。
+更新版本后，R包必须全部更新
+
+```R
+install.package("rvcheck")
+rvcheck::uodate_all()
+```
 
