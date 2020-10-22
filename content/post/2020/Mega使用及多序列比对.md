@@ -2,6 +2,7 @@
 title: Mega使用及多序列比对
 date: "2020-08-15"
 tags:  bio
+toc: true
 ---
 
 # 安装

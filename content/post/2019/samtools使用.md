@@ -97,9 +97,6 @@ $ 表示一个read结束，修饰前面碱基;
 # reheader
 作用：替换bam文件的头文件
 
-# bcftools
-bcftools用于处理vcf(variant call format)文件和bcf(binary call format)文件。前者为文本文件，后者为其二进制文件。
 
-bcftools集成了
 
 
