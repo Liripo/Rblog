@@ -98,7 +98,7 @@ theme = "github-style"
 [params]
   author = "liripo"
   description = "Liripo's blog by blogdown!"
-  github = "https://github.com/Liripo"
+  github = "Liripo"
 #  misskey = "user profile url"
 #  mastodon = "user profile url"
   email = "liripo@qq.com"

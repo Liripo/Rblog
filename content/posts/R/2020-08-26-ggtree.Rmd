@@ -96,7 +96,7 @@ p1+p2+p3+p4+plot_annotation(tag_levels = "I")
 ladderize不以梯形呈现树，branch.length可以只展示树的拓扑结构。
 
 ```{r}
-layouts <- c('rectangular', 'dendrogram', 'slanted', 'fan', 'circular', 'inward_circular', 'radial', 'equal_angle', 'daylight','ape')
+layouts <- c("rectangular", "slanted", "fan", "circular", "radial", "unrooted", "equal_angle", "daylight", "ape")
 plots <- map(layouts,~ggtree(tr = tree,layout = .x))
 wrap_plots(plots) + plot_annotation(tag_levels = "A") + plot_layout(ncol = 3,widths = c(2,2,2))
 ```
@@ -202,9 +202,9 @@ p2 <- ggtree(tree) + geom_tiplab() +
   geom_cladelabel(node = 29,align = T,barsize = 3,geom = "label",label = "gg")
 p3 <- ggtree(tree) + geom_tiplab() +
   geom_strip("A13","A18",label= "13-18",offset.text=0,offset = -0.0035)
-p4 <- p2 + geom_hilight(node = 29,fill='darkgreen', type="rect")
+p4 <- p2 + geom_hilight(node = 29,fill='darkgreen')
 p5 <- p4 + geom_balance(node=35, fill='steelblue', color='white', alpha=0.6)
-p6 <- ggtree(tree, layout="inward_circular")+ geom_tiplab(hjust = 1)+
+p6 <- ggtree(tree, layout="ape")+ geom_tiplab(hjust = 1)+
   geom_taxalink(taxa1='A13', taxa2='A18', color="red", alpha=0.5, 
               outward=FALSE)
 p1+p2+p3+p4+p5+p6 + plot_annotation(tag_levels = "I") + 

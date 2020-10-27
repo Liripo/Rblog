@@ -10,7 +10,7 @@
     
     <meta name="viewport" content="width=device-width">
     <meta name="description"
-        content="code.sourceCode span { display: inline-block; line-height: 1.25; } code.sourceCode span { color: inherit; text-decoration: inherit; } code.sourceCode span:empty { height: 1.2em; } .sourceCode { overflow: visible; } code.sourceCode { white-space: pre; position: relative; } div.sourceCode { margin: 1em 0; } pre.sourceCode { margin: 0; } @media screen { div.sourceCode { overflow: auto; } } @media print { code.sourceCode { white-space: pre-wrap; } code.sourceCode span { text-indent: -5em; padding-left: 5em; }" />
+        content="a.sourceLine { display: inline-block; line-height: 1.25; } a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; } a.sourceLine:empty { height: 1.2em; } .sourceCode { overflow: visible; } code.sourceCode { white-space: pre; position: relative; } div.sourceCode { margin: 1em 0; } pre.sourceCode { margin: 0; } @media screen { div.sourceCode { overflow: auto; } } @media print { code.sourceCode { white-space: pre-wrap; } a.sourceLine { text-indent: -1em; padding-left: 1em; } } pre.numberSource" />
     <meta name="keywords"
         content="" />
     <meta name="robots" content="noodp" />
@@ -20,7 +20,7 @@
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="ggplot2 facet分面及宽度 - Liripo" />
     <meta name="twitter:description"
-        content="code.sourceCode span { display: inline-block; line-height: 1.25; } code.sourceCode span { color: inherit; text-decoration: inherit; } code.sourceCode span:empty { height: 1.2em; } .sourceCode { overflow: visible; } code.sourceCode { white-space: pre; position: relative; } div.sourceCode { margin: 1em 0; } pre.sourceCode { margin: 0; } @media screen { div.sourceCode { overflow: auto; } } @media print { code.sourceCode { white-space: pre-wrap; } code.sourceCode span { text-indent: -5em; padding-left: 5em; }" />
+        content="a.sourceLine { display: inline-block; line-height: 1.25; } a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; } a.sourceLine:empty { height: 1.2em; } .sourceCode { overflow: visible; } code.sourceCode { white-space: pre; position: relative; } div.sourceCode { margin: 1em 0; } pre.sourceCode { margin: 0; } @media screen { div.sourceCode { overflow: auto; } } @media print { code.sourceCode { white-space: pre-wrap; } a.sourceLine { text-indent: -1em; padding-left: 1em; } } pre.numberSource" />
     <meta name="twitter:site" content="https://liripo.github.io" />
     <meta name="twitter:creator" content="Liripo" />
     <meta name="twitter:image"
@@ -30,7 +30,7 @@
     <meta property="og:type" content="article" />
     <meta property="og:title" content="ggplot2 facet分面及宽度 - Liripo">
     <meta property="og:description"
-        content="code.sourceCode span { display: inline-block; line-height: 1.25; } code.sourceCode span { color: inherit; text-decoration: inherit; } code.sourceCode span:empty { height: 1.2em; } .sourceCode { overflow: visible; } code.sourceCode { white-space: pre; position: relative; } div.sourceCode { margin: 1em 0; } pre.sourceCode { margin: 0; } @media screen { div.sourceCode { overflow: auto; } } @media print { code.sourceCode { white-space: pre-wrap; } code.sourceCode span { text-indent: -5em; padding-left: 5em; }" />
+        content="a.sourceLine { display: inline-block; line-height: 1.25; } a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; } a.sourceLine:empty { height: 1.2em; } .sourceCode { overflow: visible; } code.sourceCode { white-space: pre; position: relative; } div.sourceCode { margin: 1em 0; } pre.sourceCode { margin: 0; } @media screen { div.sourceCode { overflow: auto; } } @media print { code.sourceCode { white-space: pre-wrap; } a.sourceLine { text-indent: -1em; padding-left: 1em; } } pre.numberSource" />
     <meta property="og:url" content="https://liripo.github.io/posts/r/ggplot2-facet%E5%88%86%E9%9D%A2%E5%8F%8A%E5%AE%BD%E5%BA%A6/" />
     <meta property="og:site_name" content="ggplot2 facet分面及宽度" />
     <meta property="og:image"
@@ -165,18 +165,17 @@ if (!doNotTrack) {
                     <div class="Box mt-3 position-relative">
                         <div class="Box-header py-2 d-flex flex-column flex-shrink-0 flex-md-row flex-md-items-center">
                             <div class="text-mono f6 flex-auto pr-3 flex-order-2 flex-md-order-1 mt-2 mt-md-0">
-                                1272 Words
+                                1090 Words
                                 
                             </div>
                         </div>
 
                         <div id="readme" class="Box-body readme blob instapaper_body js-code-block-container">
                             <article class="markdown-body entry-content p-3 p-md-6" itemprop="text">
-<script src="../../../rmarkdown-libs/accessible-code-block/empty-anchor.js"></script>
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -186,16 +185,14 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -205,7 +202,7 @@ pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   { color: #cccccc; background-color: #303030; }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+a.sourceLine::before { text-decoration: underline; }
 }
 code span.al { color: #ffcfaf; } /* Alert */
 code span.an { color: #7f9f7f; font-weight: bold; } /* Annotation */
@@ -242,38 +239,33 @@ code span.wa { color: #7f9f7f; font-weight: bold; } /* Warning */
 <blockquote>
 <p>最初,我在工作的时候绘制柱状图分面时遇到了柱子不等长的情况，然后使用ggtree::facet_widths解决了。之后谷歌搜索<strong>ggplot2 facet width</strong>发现ggplot2 facet_grid已经支持可以改变分面宽度的参数。</p>
 </blockquote>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">library</span>(tidyverse)</span></code></pre></div>
-<pre><code>## Warning: 程辑包&#39;tidyverse&#39;是用R版本4.0.2 来建造的</code></pre>
-<pre><code>## -- Attaching packages -------------------------------------- tidyverse 1.3.0 --</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
+<pre><code>## -- Attaching packages ------------------------------------------------- tidyverse 1.3.0 --</code></pre>
 <pre><code>## √ ggplot2 3.3.2     √ purrr   0.3.4
-## √ tibble  3.0.3     √ dplyr   1.0.1
-## √ tidyr   1.1.1     √ stringr 1.4.0
+## √ tibble  3.0.3     √ dplyr   1.0.2
+## √ tidyr   1.1.2     √ stringr 1.4.0
 ## √ readr   1.3.1     √ forcats 0.5.0</code></pre>
-<pre><code>## Warning: 程辑包&#39;ggplot2&#39;是用R版本4.0.2 来建造的</code></pre>
-<pre><code>## Warning: 程辑包&#39;tibble&#39;是用R版本4.0.2 来建造的</code></pre>
-<pre><code>## Warning: 程辑包&#39;tidyr&#39;是用R版本4.0.2 来建造的</code></pre>
-<pre><code>## Warning: 程辑包&#39;dplyr&#39;是用R版本4.0.2 来建造的</code></pre>
-<pre><code>## -- Conflicts ----------------------------------------- tidyverse_conflicts() --
+<pre><code>## -- Conflicts ---------------------------------------------------- tidyverse_conflicts() --
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()</code></pre>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="kw">set.seed</span>(<span class="dv">2020</span>)</span>
-<span id="cb10-2"><a href="#cb10-2"></a>iris_n &lt;-<span class="st"> </span><span class="kw">slice_sample</span>(iris,<span class="dt">n =</span> <span class="dv">50</span>)</span>
-<span id="cb10-3"><a href="#cb10-3"></a>iris_long &lt;-<span class="st"> </span>iris_n <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb10-4"><a href="#cb10-4"></a><span class="st">  </span><span class="kw">pivot_longer</span>(<span class="dt">cols =</span> <span class="op">-</span>Species,<span class="dt">names_to =</span> <span class="st">&quot;x&quot;</span>,<span class="dt">values_to =</span> <span class="st">&quot;y&quot;</span>)</span>
-<span id="cb10-5"><a href="#cb10-5"></a>iris_long &lt;-<span class="st"> </span>iris_long <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb10-6"><a href="#cb10-6"></a><span class="st">  </span><span class="kw">filter</span>(Species <span class="op">!=</span><span class="st"> &quot;versicolor&quot;</span> <span class="op">|</span><span class="st"> </span>x <span class="op">!=</span><span class="st"> &quot;Sepal.Length&quot;</span>)</span>
-<span id="cb10-7"><a href="#cb10-7"></a>p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(iris_long,<span class="kw">aes</span>(x,y)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_col</span>() <span class="op">+</span><span class="st"> </span></span>
-<span id="cb10-8"><a href="#cb10-8"></a><span class="st">  </span><span class="kw">facet_grid</span>(<span class="dt">cols =</span> <span class="kw">vars</span>(Species),<span class="dt">scales =</span> <span class="st">&quot;free_x&quot;</span>)</span>
-<span id="cb10-9"><a href="#cb10-9"></a>p</span></code></pre></div>
-<p><img src="../../../post/R/2020-08-01-facet分面及宽度_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">set.seed</span>(<span class="dv">2020</span>)</a>
+<a class="sourceLine" id="cb5-2" title="2">iris_n &lt;-<span class="st"> </span><span class="kw">slice_sample</span>(iris,<span class="dt">n =</span> <span class="dv">50</span>)</a>
+<a class="sourceLine" id="cb5-3" title="3">iris_long &lt;-<span class="st"> </span>iris_n <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb5-4" title="4"><span class="st">  </span><span class="kw">pivot_longer</span>(<span class="dt">cols =</span> <span class="op">-</span>Species,<span class="dt">names_to =</span> <span class="st">&quot;x&quot;</span>,<span class="dt">values_to =</span> <span class="st">&quot;y&quot;</span>)</a>
+<a class="sourceLine" id="cb5-5" title="5">iris_long &lt;-<span class="st"> </span>iris_long <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb5-6" title="6"><span class="st">  </span><span class="kw">filter</span>(Species <span class="op">!=</span><span class="st"> &quot;versicolor&quot;</span> <span class="op">|</span><span class="st"> </span>x <span class="op">!=</span><span class="st"> &quot;Sepal.Length&quot;</span>)</a>
+<a class="sourceLine" id="cb5-7" title="7">p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(iris_long,<span class="kw">aes</span>(x,y)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_col</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb5-8" title="8"><span class="st">  </span><span class="kw">facet_grid</span>(<span class="dt">cols =</span> <span class="kw">vars</span>(Species),<span class="dt">scales =</span> <span class="st">&quot;free_x&quot;</span>)</a>
+<a class="sourceLine" id="cb5-9" title="9">p</a></code></pre></div>
+<p><img src="../../../posts/R/2020-08-01-facet分面及宽度_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
 <p>可以看到这样有一个柱子宽度不等的情况,因为默认分面等宽，现在ggplot2可以通过添加参数<code>space = "free_x</code>,你可以看看<a href="https://mattherman.info/blog/fix-facet-width/">这篇博客</a>举得例子（之前也弄过一样的，所以链接过去作个记录），或者</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>ggtree<span class="op">::</span><span class="kw">facet_widths</span>(p,<span class="dt">widths =</span> <span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">3</span>,<span class="dv">4</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1">ggtree<span class="op">::</span><span class="kw">facet_widths</span>(p,<span class="dt">widths =</span> <span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">3</span>,<span class="dv">4</span>))</a></code></pre></div>
 <pre><code>## Registered S3 method overwritten by &#39;treeio&#39;:
 ##   method     from
 ##   root.phylo ape</code></pre>
-<p><img src="../../../post/R/2020-08-01-facet分面及宽度_files/figure-html/unnamed-chunk-2-1.png" width="672" />
+<p><img src="../../../posts/R/2020-08-01-facet分面及宽度_files/figure-html/unnamed-chunk-2-1.png" width="672" />
 而这个函数源如下</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>ggtree<span class="op">::</span>facet_widths</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1">ggtree<span class="op">::</span>facet_widths</a></code></pre></div>
 <pre><code>## function (p, widths) 
 ## {
 ##     if (!is.null(names(widths))) {
@@ -284,16 +276,18 @@ code span.wa { color: #7f9f7f; font-weight: bold; } /* Warning */
 ##         widths &lt;- w
 ##     }
 ##     gt &lt;- ggplot_gtable(ggplot_build(p))
-##     j &lt;- gt$layout$l[grep(&quot;panel-&quot;, gt$layout$name)]
-##     gt$widths[j] &lt;- gt$widths[j] * widths
+##     for (i in seq_along(widths)) {
+##         j &lt;- gt$layout$l[grep(paste0(&quot;panel-1-&quot;, i), gt$layout$name)]
+##         gt$widths[j] = widths[i] * gt$widths[j]
+##     }
 ##     return(ggplotify::as.ggplot(gt))
 ## }
-## &lt;bytecode: 0x0000000020fd4840&gt;
+## &lt;bytecode: 0x0000000022b6ea48&gt;
 ## &lt;environment: namespace:ggtree&gt;</code></pre>
 <p>类似于<a href="https://stackoverflow.com/questions/49110877/how-to-adjust-facet-size-manually">stackoverflow</a>上的解决方案，不过多了<code>as.ggplot</code>。</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="kw">library</span>(grid)</span>
-<span id="cb15-2"><a href="#cb15-2"></a>gt =<span class="st"> </span><span class="kw">ggplot_gtable</span>(<span class="kw">ggplot_build</span>(p))</span>
-<span id="cb15-3"><a href="#cb15-3"></a>gt<span class="op">$</span>layout</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1"><span class="kw">library</span>(grid)</a>
+<a class="sourceLine" id="cb10-2" title="2">gt =<span class="st"> </span><span class="kw">ggplot_gtable</span>(<span class="kw">ggplot_build</span>(p))</a>
+<a class="sourceLine" id="cb10-3" title="3">gt<span class="op">$</span>layout</a></code></pre></div>
 <pre><code>##     t  l  b  r  z clip       name
 ## 23  1  1 13 13  0   on background
 ## 1   8  5  8  5  1   on  panel-1-1
@@ -319,9 +313,9 @@ code span.wa { color: #7f9f7f; font-weight: bold; } /* Warning */
 ## 21 11  5 11  9 10  off    caption
 ## 22  2  2  2  2 11  off        tag</code></pre>
 <p>可以看到name列panel开头的有三个，对应于p的三个分面，对应的l列分别为5，7，9</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a>gt<span class="op">$</span>widths[<span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">7</span>,<span class="dv">9</span>)] &lt;-<span class="st"> </span>gt<span class="op">$</span>widths[<span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">7</span>,<span class="dv">9</span>)]<span class="op">*</span><span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">3</span>,<span class="dv">4</span>)</span>
-<span id="cb17-2"><a href="#cb17-2"></a><span class="kw">grid.draw</span>(gt)</span></code></pre></div>
-<p><img src="../../../post/R/2020-08-01-facet分面及宽度_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1">gt<span class="op">$</span>widths[<span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">7</span>,<span class="dv">9</span>)] &lt;-<span class="st"> </span>gt<span class="op">$</span>widths[<span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">7</span>,<span class="dv">9</span>)]<span class="op">*</span><span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">3</span>,<span class="dv">4</span>)</a>
+<a class="sourceLine" id="cb12-2" title="2"><span class="kw">grid.draw</span>(gt)</a></code></pre></div>
+<p><img src="../../../posts/R/2020-08-01-facet分面及宽度_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 </article>
                         </div>
                     </div>
