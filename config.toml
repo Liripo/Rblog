@@ -31,12 +31,12 @@ footnotereturnlinkcontents = "↩"
 # These settings specify the title for your site, and the name of
 # the Hugo theme that it uses.
 title = "Liripo"
-theme = "hugo-calade"
+theme = "github-style"
 
 # What format should the permalinks take?
-[permalinks]
-    post = "/post/:slug/"
-    project = "/project/:slug/"
+#[permalinks]
+#    post = "/post/:slug/"
+#    project = "/project/:slug/"
 #
 # Alternative version:
 #   post = "/post/:year/:month/:day/:slug/"
@@ -59,7 +59,7 @@ theme = "hugo-calade"
     weight = 2
 [[menu.main]]
     name = "Posts"
-    url = "/post/"
+    url = "/posts/"
     weight = 3
 #[[menu.main]]
 #    name = "Projects"
@@ -85,16 +85,27 @@ theme = "hugo-calade"
 # - "colorAccent1": default value for the first accent color (the "highlight")
 # - "colorAccent2": default value for the second accent color (the "lowlight")
 
+#[params]
+#    siteHeader = "header/banner.png"
+#    siteProfile = "header/profile.png"
+#    description = "A website of one's own"
+#    footer = ""
+#    colorPage = "#333333"    # background colour
+#    colorText = "#dddddd"    # main text colour
+#    colorFade = "#888888"    # faded text colour
+#    colorAccent1 = "#6BB0DF" #"#ff69b4" # first accent colour ("highlight")
+#    colorAccent2 = "#ba68c8" # second accent colour ("lowlight")
 [params]
-    siteHeader = "header/banner.png"
-    siteProfile = "header/profile.png"
-    description = "A website of one's own"
-    footer = ""
-    colorPage = "#333333"    # background colour
-    colorText = "#dddddd"    # main text colour
-    colorFade = "#888888"    # faded text colour
-    colorAccent1 = "#6BB0DF" #"#ff69b4" # first accent colour ("highlight")
-    colorAccent2 = "#ba68c8" # second accent colour ("lowlight")
+  author = "liripo"
+  description = "Liripo's blog by blogdown!"
+  github = "https://github.com/Liripo"
+#  misskey = "user profile url"
+#  mastodon = "user profile url"
+  email = "liripo@qq.com"
+  utterances = "liripo/liripo.github.io"
+  avatar = "https://themes.gohugo.io/theme/github-style/images/avatar.png"
+  url = "https://github.com/Liripo"
+#  keywords = "blog, google analytics"
 [markup.goldmark.renderer]
 unsafe = true
 [markup.tableOfContents]
